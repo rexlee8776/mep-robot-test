@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    environment/variables.txt
+Resource    ../environment/variables.txt
 Resource    GenericKeywords.robot
 Library    REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 Library    JSONSchemaLibrary    schemas/
@@ -17,7 +17,6 @@ Check HTTP Response Status Code Is
     ${status}=    Convert To Integer    ${expected_status}
     Should Be Equal    ${response['status']}    ${status}
     Log    Status code validated
-
 
 Check HTTP Response Body Json Schema Is
     [Arguments]    ${input}
@@ -41,7 +40,7 @@ Should Be Present In Json List
     Log    Item found ${item}
     [return]    ${item}
 
-Check tag user
+Check User Identity Tag state
     [Arguments]    ${ue_identity_tag}    ${state}
     Log    Check ueIdentityTag state
     Set Headers    {"Accept":"application/json"}

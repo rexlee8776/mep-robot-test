@@ -1,9 +1,9 @@
-[Documentation]   robot --outputdir ./outputs .SRV/UETAG/PlatUeIdentity.robot
+[Documentation]   robot --outputdir ./outputs ./SRV/UETAG/PlatUeIdentity.robot
 ...    Test Suite to validate UE Identity Tag (UETAG) operations.
 
 *** Settings ***
-Resource    environment/variables.txt
-Resource    resources/GenericKeywords.robot
+Resource    ../../environment/variables.txt
+Resource    ../../resources/GenericKeywords.robot
 Library     REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 
 Default Tags    TC_MEC_SRV_UETAG
@@ -33,7 +33,6 @@ Get UeIdentity tag information
     Should Be Present In Json List    ${response['body']['ueIdentityTagInfo']['ueIdentityTags']}    ueIdentityTag    ${UE_IDENTITY_TAG}
     Log    ${UE_IDENTITY_TAG} found
 
-*** Test Cases ***
 Register a UE Identity tag
     [Documentation]   TC_MEC_PLAT_UETAG_002_OK
     ... Check that the IUT registers a tag (representing a UE) or a list of tags when commanded by a MEC Application
@@ -48,5 +47,5 @@ Register a UE Identity tag
     Check tag user    ${UE_IDENTITY_TAG}    'UNREGISTERER'
     # Test Body: Register the tag user and check that the IUT has registered the tag user
     Post    /exampleAPI/ui/v1/${APP_INSTANCE_ID}/ue_identity_tag_info    { "userTagId": ${UE_IDENTITY_TAG}, "state": "REGISTER" }
-    Check tag user    ${UE_IDENTITY_TAG}    'REGISTERER'
+    Check User Identity Tag state    ${UE_IDENTITY_TAG}    'REGISTERER'
     Log ${UE_IDENTITY_TAG} was registered successfully
