@@ -1,6 +1,6 @@
 *** Variables ***
 ${MEC-APP_SCHEMA}    http
-${MEC-APP_HOST}      192.168.0.5
+${MEC-APP_HOST}      192.168.0.17
 ${MEC-APP_PORT}      8081
 ${ZONE_ID}           zone01
 ${APP_INSTANCE_ID}   appInst01
