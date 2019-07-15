@@ -1,8 +1,12 @@
 *** Variables ***
-${MEC-APP_SCHEMA}    http
-${MEC-APP_HOST}      192.168.0.17
-${MEC-APP_PORT}      8081
-${ZONE_ID}           zone01
-${APP_INSTANCE_ID}   appInst01
-${UE_IDENTITY_TAG}   UeTagA
-${response}          {}
+${MEC-APP_SCHEMA}                   http
+${MEC-APP_HOST}                     172.28.4.87
+#${MEC-APP_HOST}                     127.0.0.1
+#${MEC-APP_HOST}                     192.168.0.17
+${MEC-APP_PORT}                     8081
+${ZONE_ID}                          zone01
+${APP_INSTANCE_ID}                  appInst01
+${NON_EXISTENT_APP_INSTANCE_ID}     appInst99
+${UE_IDENTITY_TAG}                  UeTagA
+${UE_IDENTITY_TAG_INVALID_STATE}    UeTagC
+${response}                         {}

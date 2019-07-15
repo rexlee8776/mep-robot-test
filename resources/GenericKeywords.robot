@@ -42,7 +42,7 @@ Should Be Present In Json List
 
 Check User Identity Tag state
     [Arguments]    ${ue_identity_tag}    ${state}
-    Log    Check ueIdentityTag state
+    Log    Check ueIdentityTag state ${state}
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"Basic YWxhZGRpbjpvcGVuc2VzYW1l"}
