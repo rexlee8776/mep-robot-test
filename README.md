@@ -1,7 +1,7 @@
-# MEC Testing Framework in TTCN-3
+# MEC Testing Framework in Robot Framework
 
 ## Introduction
-This repositories contains the test specifications and test adapter code for MEC Testing project in TTCN-3.
+This repositories contains the test specifications and test adapter code for MEC Testing project in Robot Framework
 
 ## Contact information
 Email at cti_support at etsi dot org
