@@ -3,7 +3,7 @@
 Documentation
 ...   A test suite for validating Application Service Availability Query (APPSAQ) operations.
 
-Resource    ../../resources/GenericKeywords.robot
+Resource    ../../resources.robot
 
 Default Tags    TP_MEC_SRV_APPSAQ
 
