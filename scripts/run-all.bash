@@ -12,3 +12,10 @@ rm -f logs/robot_stdout.log
 ## Filter Errors on code
 grep -rn " ERROR " logs/robot_stderr.log | grep -v "File has no tests or tasks" > logs/errors.log
 rm -f logs/robot_stderr.log
+
+
+ERRORS=`awk 'END{print NR}' logs/errors.log logs/failures.log`
+if [ "${ERRORS}" -eq 0 ]; then
+	rm -f logs/errors.log
+	rm -f logs/failures.log
+fi
