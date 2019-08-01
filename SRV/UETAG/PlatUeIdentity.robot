@@ -4,6 +4,7 @@
 *** Settings ***
 Resource    ../../environment/variables.txt
 Resource    ../../resources/GenericKeywords.robot
+Resource    ../../resources/UEidentityAPI.robot
 Library     REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 
 Default Tags    TC_MEC_SRV_UETAG
@@ -14,9 +15,9 @@ Default Tags    TC_MEC_SRV_UETAG
 *** Test Cases ***
 Get UE Identity Tag information
     [Documentation]   TC_MEC_SRV_UETAG_001_OK
-    # Check that the IUT responds with the information on a UE Identity tag when queried by a MEC Application
-    # Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
-    # Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
+    ...  Check that the IUT responds with the information on a UE Identity tag when queried by a MEC Application
+    ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
 
     [Tags]    TP_MEC_SRV_UETAG_001_OK    TP_MEC_SRV_UETAG
 
@@ -35,9 +36,9 @@ Get UE Identity Tag information
 Bad Request error on UE Identity Tag registration
 # FIXME Which IE protocol should be invalid?
     [Documentation]   TC_MEC_SRV_UETAG_001_BR
-    # Check that the IUT responds with an error when a request with incorrect parameters is sent by a MEC Application
-    # Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
-    # Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
+    ...  Check that the IUT responds with an error when a request with incorrect parameters is sent by a MEC Application
+    ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
 
     [Tags]    TP_MEC_SRV_UETAG_001_BR    TP_MEC_SRV_UETAG
 
@@ -52,9 +53,9 @@ Bad Request error on UE Identity Tag registration
 
 Not Found error on UE Identity Tag registration
     [Documentation]   TC_MEC_SRV_UETAG_001_NF
-    # Check that the IUT responds with an error when a request for an URI that cannot be mapped to a valid resource URI is sent by a MEC Application
-    # Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
-    # Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
+    ...  Check that the IUT responds with an error when a request for an URI that cannot be mapped to a valid resource URI is sent by a MEC Application
+    ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
 
     [Tags]    TP_MEC_SRV_UETAG_001_NF    TP_MEC_SRV_UETAG
 
@@ -69,9 +70,9 @@ Not Found error on UE Identity Tag registration
 
 Register a UE Identity Tag
     [Documentation]   TC_MEC_PLAT_UETAG_002_OK
-    # Check that the IUT registers a tag (representing a UE) or a list of tags when commanded by a MEC Application
-    # Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
-    # Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
+    ...  Check that the IUT registers a tag (representing a UE) or a list of tags when commanded by a MEC Application
+    ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
 
     [Tags]    TP_MEC_SRV_UETAG_002_OK    TP_MEC_SRV_UETAG
 
@@ -89,9 +90,9 @@ Register a UE Identity Tag
 
 Bad Request error on invalid state
     [Documentation]   TC_MEC_PLAT_UETAG_002_BR
-    # Check that the IUT responds with an error when an unauthorised request is sent by a MEC Application
-    # Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
-    # Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
+    ...  Check that the IUT responds with an error when an unauthorised request is sent by a MEC Application
+    ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
 
     [Tags]    TP_MEC_SRV_UETAG_002_BR    TP_MEC_SRV_UETAG
 
@@ -107,9 +108,9 @@ Bad Request error on invalid state
 
 Precondition Failed error on invalid state
     [Documentation]   TC_MEC_PLAT_UETAG_002_PF
-    # Check that the IUT responds with ProblemDetails on information an invalid URI
-    # Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
-    # Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
+    ...  Check that the IUT responds with ProblemDetails on information an invalid URI
+    ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
 
     [Tags]    TP_MEC_SRV_UETAG_002_PF    TP_MEC_SRV_UETAG
 
