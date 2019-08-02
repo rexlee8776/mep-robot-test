@@ -10,3 +10,4 @@ ${NON_EXISTENT_APP_INSTANCE_ID}     appInst99
 ${UE_IDENTITY_TAG}                  UeTagA
 ${UE_IDENTITY_TAG_INVALID_STATE}    UeTagC
 ${response}                         {}
+${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l

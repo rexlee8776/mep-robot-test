@@ -1,0 +1,4 @@
+*** Variables ***
+
+${PIC_MEC_PLAT}    1 
+${PIC_SERVICES}    1

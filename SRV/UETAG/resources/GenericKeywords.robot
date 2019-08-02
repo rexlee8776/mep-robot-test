@@ -32,3 +32,8 @@ Should Be Present In Json List
     \  Exit For Loop If    "${item['${json_field}']}" == "${json_value}"
     Log    Item found ${item}
     [return]    ${item}
+
+
+Check Result Contains  
+    [Arguments]    ${source}    ${parameter}    ${value}
+    Should Be Present In Json List    ${source}    ${parameter}    ${value}
