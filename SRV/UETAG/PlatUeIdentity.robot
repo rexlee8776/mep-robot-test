@@ -15,12 +15,12 @@ Request UE Identity Tag information
     [Documentation]   TC_MEC_SRV_UETAG_001_OK
     ...  Check that the IUT responds with the information on a UE Identity tag when queried by a MEC Application
     ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.1
-    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo    
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Get UE Identity Tag information
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is   ueIdentityTagInfo
     Check Result Contains    ${response['body']['ueIdentityTagInfo']['ueIdentityTags']}    ueIdentityTag    ${UE_IDENTITY_TAG}
-    
+
 
 Request UE Identity Tag information using bad parameters
     [Documentation]   TC_MEC_SRV_UETAG_001_BR
@@ -44,13 +44,13 @@ Register an UE Identity Tag
     [Documentation]   TP_MEC_SRV_UETAG_002_OK
     ...  Check that the IUT registers a tag (representing a UE) or a list of tags when commanded by a MEC Application
     ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
-    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo 
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Update an UE Identity Tag      {"ueIdentityTags":[{"ueIdentityTag":"${UE_IDENTITY_TAG}","state":"REGISTERED"}]}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    UeIdentityTagInfo
     Log    Checking Postcondition
     Check User Identity Tag state    ${UE_IDENTITY_TAG}    REGISTERED
-    
+
 
 Register an UE Identity Tag using invalid state
     [Documentation]   TP_MEC_SRV_UETAG_002_BR
@@ -59,33 +59,34 @@ Register an UE Identity Tag using invalid state
     ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Update an UE Identity Tag using invalid state    {"ueIdentityTags":[{"ueIdentityTag":"${UE_IDENTITY_TAG}","state":"INVALID_STATE"}]}
     Check HTTP Response Status Code Is    400
-    
-    
+
+
 Unregister an UE Identity Tag already in unregistered state
     [Documentation]   TP_MEC_SRV_UETAG_002_PF
     ...  Check that the IUT responds with ProblemDetails on information an invalid URI
     ...  Reference ETSI GS MEC 014 V1.1.1, clause 7.3.3.2
-    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo    
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Update an UE Identity Tag using a not applicable valid state    {"ueIdentityTags":[{"ueIdentityTag":"${UE_IDENTITY_TAG_INVALID_STATE}","state":"UNREGISTERED"}]}
     Check HTTP Response Status Code Is    412
-    
+
 
 *** Keywords ***
 Get UE Identity Tag information
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'      
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
     Set Headers    {"Content-Length":"0"}
     Get    /exampleAPI/ui/v1/${APP_INSTANCE_ID}/ue_identity_tag_info?ueIdentityTag=${UE_IDENTITY_TAG}
     ${output}=    Output    response
-    
-    
+    Set Suite Variable    ${response}    ${output}
+
+
 Get UE Identity Tag information using bad parameters
 # FIXME Which IE protocol should be invalid?
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'      
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -96,8 +97,8 @@ Get UE Identity Tag information using bad parameters
 
 
 Get UE Identity Tag information using non-existent application instance
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'      
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -105,27 +106,28 @@ Get UE Identity Tag information using non-existent application instance
     Get    /exampleAPI/ui/v1/${NON_EXISTENT_APP_INSTANCE_ID}/ue_identity_tag_info?ueIdentityTag=${UE_IDENTITY_TAG}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
-    
+
 
 Update an UE Identity Tag
     [Arguments]    ${content}
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'      
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
-    ## As far as I understood, we are not checking preconditions. 
+    ## As far as I understood, we are not checking preconditions.
     # Preamble: Check that the user tag is not registered
     ## Check User Identity Tag state    ${UE_IDENTITY_TAG}    UNREGISTERED
+    log    ${content}
     Put    /exampleAPI/ui/v1/${APP_INSTANCE_ID}/ue_identity_tag_info    ${content}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
 
-    
+
 Update an UE Identity Tag using invalid state
     [Arguments]    ${content}
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -133,12 +135,12 @@ Update an UE Identity Tag using invalid state
     Put    /exampleAPI/ui/v1/${APP_INSTANCE_ID}/ue_identity_tag_info    ${content}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
-    
 
-Update an UE Identity Tag using a not applicable valid state 
+
+Update an UE Identity Tag using a not applicable valid state
     [Arguments]    ${content}
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -146,6 +148,5 @@ Update an UE Identity Tag using a not applicable valid state
     Put    /exampleAPI/ui/v1/${APP_INSTANCE_ID}/ue_identity_tag_info    ${content}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
-    
+
     # TODO Check ProblemDetails
-    

@@ -33,7 +33,6 @@ Should Be Present In Json List
     Log    Item found ${item}
     [return]    ${item}
 
-
-Check Result Contains  
+Check Result Contains
     [Arguments]    ${source}    ${parameter}    ${value}
     Should Be Present In Json List    ${source}    ${parameter}    ${value}
