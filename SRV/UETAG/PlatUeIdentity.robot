@@ -1,4 +1,4 @@
-''[Documentation]   robot --outputdir ./outputs ./SRV/UETAG/PlatUeIdentity.robot
+''[Documentation]   robot --outputdir ../../outputs ./PlatUeIdentity.robot
 ...    Test Suite to validate UE Identity Tag (UETAG) operations.
 
 *** Settings ***

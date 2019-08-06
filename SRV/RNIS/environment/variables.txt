@@ -1,0 +1,11 @@
+*** Variables ***
+${MEC-APP_SCHEMA}                   http
+#${MEC-APP_HOST}                     172.28.4.87
+#${MEC-APP_HOST}                     127.0.0.1
+${MEC-APP_HOST}                     192.168.56.1
+${MEC-APP_PORT}                     8081
+${SUBSCRIPTION_ID}                  7777
+${NON_EXISTENT_SUBSCRIPTION_ID}     6666
+${LINKS_SELF}                       http://example.com/exampleAPI/rni/v2/subscriptions
+${response}                         {}
+${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
