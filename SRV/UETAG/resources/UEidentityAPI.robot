@@ -9,8 +9,8 @@ Library    JSONSchemaLibrary    schemas/
 *** Keywords ***
 Check User Identity Tag state
     [Arguments]    ${ue_identity_tag}    ${state}
-    Should Be True    ${PIC_MEC_PLAT} == '1'
-    Should Be True    ${PIC_SERVICES} == '1'
+    Should Be True    ${PIC_MEC_PLAT}    1
+    Should Be True    ${PIC_SERVICES}    1
     Log    Check ueIdentityTag state ${state}
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}

@@ -11,15 +11,22 @@ This file provides the list of the TODOs related to the STF 569.
 
 ### APPSUB
 
-### BWA 
+### BWA
 
-### DNS 
+### DNS
 
 ### FAIS
 
 ### RLOC
 
 ### RNIS
+
+Draft ETSI GS MEC 012 2.0.4
+
+https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/SRV/RNIS/RnisSpecificSubscription_BV.tplan2
+https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/SRV/RNIS/RnisSpecificSubscription_BV.tplan2
+
+- TC_MEC_SRV_RNIS_011_OK       <font color="color:green">To be tested</font>
 
 ### SAQ
 
@@ -29,7 +36,7 @@ This file provides the list of the TODOs related to the STF 569.
 
 ### TRAF
 
-### TRANS 
+### TRANS
 
 ### UEAREASUB
 
@@ -74,7 +81,7 @@ https://forge.etsi.org/gitlab/mec/MEC-tests/blob/master/Test%20Purposes/SRV/UELO
 
 
 
-### UETAG 
+### UETAG
 
 ETSI GS MEC 014 V1.1.1 (2018-02)
 
@@ -99,4 +106,3 @@ https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purpo
 Draft ETSI GS MEC 013 V2.0.3 (2018-10)
 
 https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/remove-401s/Test%20Purposes/SRV/UETRACKSUB/PlatUeTrackingSubscription.tplan2
-

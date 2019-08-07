@@ -4,10 +4,8 @@ ${MEC-APP_SCHEMA}                   http
 #${MEC-APP_HOST}                     127.0.0.1
 ${MEC-APP_HOST}                     192.168.56.1
 ${MEC-APP_PORT}                     8081
-${ZONE_ID}                          zone01
-${APP_INSTANCE_ID}                  appInst01
-${NON_EXISTENT_APP_INSTANCE_ID}     appInst99
-${UE_IDENTITY_TAG}                  UeTagA
-${UE_IDENTITY_TAG_INVALID_STATE}    UeTagC
+${SUBSCRIPTION_ID}                  7777
+${NON_EXISTENT_SUBSCRIPTION_ID}     6666
+${LINKS_SELF}                       http://example.com/exampleAPI/rni/v2/subscriptions
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
