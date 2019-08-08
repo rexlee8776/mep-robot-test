@@ -1,17 +1,12 @@
 *** Settings ***
-Resource    ../environment/variables.txt
-Resource    GenericKeywords.robot
-Library    REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 Library    JSONSchemaLibrary    schemas/
+Library    BuiltIn
+
+*** Variables ***
+${response}
+
 
 *** Keywords ***
-Get User Equipment for location with filters
-    [Arguments]    ${value}
-    Set Headers  {"Accept":"application/json"}
-    Get    /location/v2/users/${value}
-    ${output}=    Output    response
-    Set Suite Variable    ${response}    ${output}
-
 Check HTTP Response Status Code Is
     [Arguments]    ${expected_status}
     ${status}=    Convert To Integer    ${expected_status}
