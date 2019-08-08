@@ -1,4 +1,4 @@
-''[Documentation]   robot --outputdir ../../outputs ./RnisSpecificSubscription_BV.robot
+''[Documentation]   robot --outputdir ../../outputs ./RnisQuery_BV.robot
 ...    Test Suite to validate RNIS/Subscription (RNIS) operations.
 
 *** Settings ***

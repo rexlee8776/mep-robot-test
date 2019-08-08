@@ -29,6 +29,8 @@ Request UE Identity Tag information using bad parameters
     ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Get UE Identity Tag information using bad parameters
     Check HTTP Response Status Code Is    400
+    Check ProblemDetails    400
+
 
 
 Request UE Identity Tag information using non-existent application instance
@@ -38,6 +40,7 @@ Request UE Identity Tag information using non-existent application instance
     ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Get UE Identity Tag information using non-existent application instance
     Check HTTP Response Status Code Is    404
+    Check ProblemDetails    404
 
 
 Register an UE Identity Tag
@@ -59,6 +62,7 @@ Register an UE Identity Tag using invalid state
     ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Update an UE Identity Tag using invalid state    {"ueIdentityTags":[{"ueIdentityTag":"${UE_IDENTITY_TAG}","state":"INVALID_STATE"}]}
     Check HTTP Response Status Code Is    400
+    Check ProblemDetails    400
 
 
 Unregister an UE Identity Tag already in unregistered state
@@ -68,6 +72,7 @@ Unregister an UE Identity Tag already in unregistered state
     ...  Reference https://forge.etsi.org/gitlab/mec/gs014-ue-identity-api/blob/master/UEidentityAPI.yaml#/definitions/UeIdentityTagInfo
     Update an UE Identity Tag using a not applicable valid state    {"ueIdentityTags":[{"ueIdentityTag":"${UE_IDENTITY_TAG_INVALID_STATE}","state":"UNREGISTERED"}]}
     Check HTTP Response Status Code Is    412
+    Check ProblemDetails    412
 
 
 *** Keywords ***

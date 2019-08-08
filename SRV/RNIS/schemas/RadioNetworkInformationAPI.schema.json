@@ -688,10 +688,14 @@
   "CellChangeSubscriptionPost": {
     "type": "object",
     "required": [
+      "subscriptionType",
       "callbackReference",
       "filterCriteria"
     ],
     "properties": {
+      "subscriptionType": {
+        "$ref": "#/definitions/SubscriptionType"
+      },
       "callbackReference": {
         "$ref": "#/definitions/CallbackReference"
       },
@@ -814,7 +818,8 @@
       "MEAS_REPORT_UE",
       "MEAS_TIMING_ADVANCE",
       "CA_RECONF",
-      "S1_BEARE"
+      "S1_BEARE",
+      "WRONG_PARAMETER"
     ],
     "example": "CELL_CHANGE"
   },
