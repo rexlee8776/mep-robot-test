@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ../environment/variables.txt
-Resource    ../environment/pics.txt
-Resource    GenericKeywords.robot
+Resource    ../../../pics.txt
+Resource    ../../../GenericKeywords.robot
 Library    REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 Library    JSONSchemaLibrary    schemas/
 
@@ -19,3 +19,20 @@ Check Subscription
 Check CellChangeSubscription
     [Arguments]    ${received_value}
     Should Be Equal    ${received_value['_links']['self']}    ${LINKS_SELF}
+
+
+Check RabInfo
+    [Arguments]    ${received_value}
+    Should Be Equal    ${received_value['appInsId']}    ${APP_INS_ID}
+    Should Not Contain    ${received_value['requestId']}    ""
+    Should Be Equal    ${received_value['cellUserInfo']['ecgi']['cellId']}    ${CELL_ID}
+    # TODO How to check the presence of a field
+
+
+Check PlmnInfo
+    [Arguments]    ${received_value}
+    Should Be Equal    ${received_value['appInsId']}    ${APP_INS_ID}
+    Should Be Equal    ${received_value['ecgi']['cellId']}    ${CELL_ID}
+    Should Not Contain    ${received_value['ecgi']['plmn']['mcc']}    ""
+    Should Not Contain    ${received_value['ecgi']['plmn']['mnc']}    ""
+    # TODO How to check the presence of a field

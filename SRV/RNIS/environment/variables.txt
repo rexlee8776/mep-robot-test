@@ -11,5 +11,7 @@ ${SUBSCRIPTION_HREF_VALUE}          cell_changed
 ${SUBSCRIPTION_TYPE}                CELL_CHANGE
 ${HREF}                             http://meAppClient.example.com/rni/v1/notifications/cell_change/77777
 ${SUBSCRIPTION_VALUE}               {'href': '${HREF}', 'subscriptionType': '${SUBSCRIPTION_TYPE}'}
+${CELL_ID}                          0x800000A
+${APP_INS_ID}                       01
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l

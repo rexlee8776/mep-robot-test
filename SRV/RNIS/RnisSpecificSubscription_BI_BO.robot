@@ -26,7 +26,7 @@ Create RNIS subscription using bad parameters
     ...  Check that the RNIS service responds with an error when it receives a request to create a new RNIS subscription with a wrong format
     ...  ETSI GS MEC 012 2.0.4, clause 7.6.3.4
     ...  Reference https://forge.etsi.org/gitlab/mec/gs012-rnis-api/blob/master/RniAPI.yaml
-    Post RNIS subscription request    {"CellChangeSubscription": {"subscriptionType": WRONG_PARAMETER, "callbackReference": "${HREF}", "_links": {"self": "${LINKS_SELF}"}, "filterCriteria": {"appInsId": "01", "associateId": [{"type": "UE_IPV4_ADDRESS", "value": 1}], "plmn": {"mcc": "01", "mnc": "001"}, "cellId": ["800000"], "hoStatus": "COMPLETED"}, "expiryDeadline": {"seconds": 1577836800, "nanoSeconds": 0}}}
+    Post RNIS subscription request    {"CellChangeSubscription": {"subscriptionType": "CelCangeSubscription", "callbackReference": "${HREF}", "_links": {"self": "${LINKS_SELF}"}, "filterCriteria": {"appInsId": "01", "associateId": [{"type": "UE_IPV4_ADDRESS", "value": 1}], "plmn": {"mcc": "01", "mnc": "001"}, "cellId": ["800000"], "hoStatus": "COMPLETED"}, "expiryDeadline": {"seconds": 1577836800, "nanoSeconds": 0}}}
     Check HTTP Response Status Code Is    400
     Check ProblemDetails    400
 
@@ -38,6 +38,17 @@ Get RNIS subscription list with wrong parameter
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
     Set Headers    {"Content-Length":"0"}
-    Post    /exampleAPI/rni/v2/subscriptions?subscription_type=InvalidSubscriptionRef
+    Get    /exampleAPI/rni/v2/subscriptions?subscription_type=wrongSubscriptionType
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+
+Post RNIS subscription request
+    [Arguments]    ${content}
+    Should Be True    ${PIC_RNIS_SPECIFIC_SUBSCRIPTION} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Post    /exampleAPI/rni/v2/subscriptions    ${content}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
