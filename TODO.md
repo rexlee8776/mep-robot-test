@@ -29,12 +29,36 @@ https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purpo
 https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/SRV/RNIS/RnisQuery_BI_BO.tplan2
 
 - TC_MEC_SRV_RNIS_011_OK       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_012_OK       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_011_BR       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_012_BR       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_016_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_016_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_016_NF       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_017_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_017_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_017_NF       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_018_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_018_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_018_NF       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_019_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_019_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_019_NF       <font color="color:green">To be tested</font>
 
 ### SAQ
 

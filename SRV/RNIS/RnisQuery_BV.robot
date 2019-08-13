@@ -34,7 +34,7 @@ Request Plmn info
 
 
 Request S1Bearer info
-    [Documentation]   TC_MEC_SRV_RNIS_017_OK
+    [Documentation]   TC_MEC_SRV_RNIS_018_OK
     ...  Check that the RNIS service returns the S1 bearer information
     ...  ETSI GS MEC 012 2.0.4, clause 7.4.3.1
     ...  Reference https://forge.etsi.org/gitlab/mec/gs012-rnis-api/blob/master/RniAPI.yaml#/definitions/S1BearerInfo
@@ -43,6 +43,14 @@ Request S1Bearer info
     Check HTTP Response Body Json Schema Is   RadioNetworkInformationAPI
     #log    ${response['body']}
     Check S1BearerInfo    ${response['body']['S1BearerInfo']}
+
+
+Request L2Meas info
+    [Documentation]   TC_MEC_SRV_RNIS_019_OK
+    ...  Check that the RNIS service returns the L2 measurements information
+    ...  ETSI GS MEC 012 2.0.4, clause 7.4.3.1
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs012-rnis-api/blob/master/RniAPI.yaml#/definitions/S1BearerInfo
+    Fail    msg=Too many changes in JSON data description, not implemented
 
 
 *** Keywords ***
