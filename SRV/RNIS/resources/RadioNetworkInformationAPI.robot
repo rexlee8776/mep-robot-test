@@ -23,16 +23,24 @@ Check CellChangeSubscription
 
 Check RabInfo
     [Arguments]    ${received_value}
+    log    ${received_value}
     Should Be Equal    ${received_value['appInsId']}    ${APP_INS_ID}
     Should Not Contain    ${received_value['requestId']}    ""
-    Should Be Equal    ${received_value['cellUserInfo']['ecgi']['cellId']}    ${CELL_ID}
+    Should Be Equal    ${received_value['cellUserInfo'][0]['ecgi']['cellId']}    ${CELL_ID}
     # TODO How to check the presence of a field
 
 
 Check PlmnInfo
     [Arguments]    ${received_value}
+    log    ${received_value}
     Should Be Equal    ${received_value['appInsId']}    ${APP_INS_ID}
-    Should Be Equal    ${received_value['ecgi']['cellId']}    ${CELL_ID}
-    Should Not Contain    ${received_value['ecgi']['plmn']['mcc']}    ""
-    Should Not Contain    ${received_value['ecgi']['plmn']['mnc']}    ""
+    Should Not Contain    ${received_value['plmn'][0]['mcc']}    ""
+    Should Not Contain    ${received_value['plmn'][0]['mnc']}    ""
+    # TODO How to check the presence of a field
+
+
+Check S1BearerInfo
+    [Arguments]    ${received_value}
+    log    ${received_value}
+    #Should Not Contain    ${received_value['s1UeInfo'][0]['ecgi']['cellId']}    ${CELL_ID}
     # TODO How to check the presence of a field
