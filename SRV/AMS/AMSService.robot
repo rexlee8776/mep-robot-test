@@ -233,7 +233,7 @@ Post Expire Notification
 
 *** Keywords ***
 Get Registered AMS information
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -243,7 +243,7 @@ Get Registered AMS information
     
 Get Registered AMS information using attribute-selector
     [Arguments]    ${key}    ${value}
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -253,7 +253,7 @@ Get Registered AMS information using attribute-selector
     
     
 Get Registered AMS information using bad parameters
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -264,7 +264,7 @@ Get Registered AMS information using bad parameters
 
 Create a new application mobility service
     [Arguments]    ${content}
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -276,7 +276,7 @@ Create a new application mobility service
     
 
 Get Subscriptions for registered AMS    
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
     Get    ${apiRoot}/${apiName}/${apiVersion}/subscriptions
@@ -286,7 +286,7 @@ Get Subscriptions for registered AMS
     
     
 Get Subscriptions for registered AMS with wrong attbirube parameter
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
     Get    ${apiRoot}/${apiName}/${apiVersion}/subscriptions?subscriptionTyp=${SUBSCRIPTION_TYPE}
@@ -297,7 +297,7 @@ Get Subscriptions for registered AMS with wrong attbirube parameter
 
 Post a new notification subscription
     [Arguments]    ${content}
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
@@ -311,7 +311,7 @@ Post a new notification subscription
     
 Get individual subscription for AMS services
     [Arguments]    ${content}
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
     Get    ${apiRoot}/${apiName}/${apiVersion}/subscriptions/${content}
@@ -321,7 +321,7 @@ Get individual subscription for AMS services
 
 Delete individual subscription for AMS services 
     [Arguments]    ${content}
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Authorization":"${TOKEN}"}
     Get    ${apiRoot}/${apiName}/${apiVersion}/subscriptions/${content}
     ${output}=    Output    response
@@ -330,7 +330,7 @@ Delete individual subscription for AMS services
 
 Update individual subscription for AMS services
     [Arguments]    ${identifier}    ${content}
-    Should Be True    ${PIC_AMS} == '1'
+    Should Be True    ${PIC_AMS} == 1
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
