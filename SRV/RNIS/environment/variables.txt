@@ -24,7 +24,7 @@ ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ${MOCK_SERVER_JAR}    ../../../bin/mockserver-netty-5.5.0-jar-with-dependencies.jar
 
 ${callback_port}                    9091
-${callback_uri}                     http://172.22.1.7:${callback_port}
+${callback_uri}                     http://192.168.56.103:${callback_port}
 ${callback_endpoint}                /subscriptions
 ${callback_endpoint_error}          /subs_404
 ${total_polling_time}               2 min
