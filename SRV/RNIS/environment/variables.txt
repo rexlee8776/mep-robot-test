@@ -19,3 +19,13 @@ ${APP_ID}                           10
 ${NOT_EXISTENT_APP_INS_ID}          99
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
+
+# Notifications variables
+${MOCK_SERVER_JAR}    ../../../bin/mockserver-netty-5.5.0-jar-with-dependencies.jar
+
+${callback_port}                    9091
+${callback_uri}                     http://172.22.1.7:${callback_port}
+${callback_endpoint}                /subscriptions
+${callback_endpoint_error}          /subs_404
+${total_polling_time}               2 min
+${polling_interval}                 10 sec

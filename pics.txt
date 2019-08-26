@@ -4,4 +4,5 @@ ${PIC_MEC_PLAT}        1
 ${PIC_SERVICES}        1
 ${PIC_RNIS_QUERY}      1
 ${PIC_RNIS_SPECIFIC_SUBSCRIPTION}    1
+${PIC_RNIS_NOTIFICATIONS}            1
 ${PIC_AMS}             1
