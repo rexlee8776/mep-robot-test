@@ -31,3 +31,9 @@ Should Be Present In Json List
 Check Result Contains
     [Arguments]    ${source}    ${parameter}    ${value}
     Should Be Present In Json List    ${source}    ${parameter}    ${value}
+
+Check ProblemDetails
+    [Arguments]    ${expected_status}
+    ${status}=    Convert To Integer    ${expected_status}
+    Should Be Equal    ${response['body']['problemDetails']['status']}    ${status}
+    Log    ProblemDetails Status code validated

@@ -46,7 +46,7 @@
     "type": "object",
     "required": [
       "appInsId",
-      "ecgi"
+      "plmn"
     ],
     "properties": {
       "timeStamp": {
@@ -55,8 +55,11 @@
       "appInsId": {
         "$ref": "#/definitions/AppInsId"
       },
-      "ecgi": {
-        "$ref": "#/definitions/Ecgi"
+      "plmn": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Plmn"
+        }
       }
     }
   },
@@ -104,7 +107,6 @@
   "S1UeInfo": {
     "type": "object",
     "required": [
-      "tempUeId",
       "ecgi",
       "s1BearerInfoDetailed"
     ],
@@ -140,13 +142,14 @@
     "type": "object",
     "required": [
       "erabId",
-      "s1EnbInfo"
+      "enbInfo",
+      "sGwInfo"
     ],
     "properties": {
       "erabId": {
         "$ref": "#/definitions/ErabId"
       },
-      "s1EnbInfo": {
+      "enbInfo": {
         "$ref": "#/definitions/S1EnbInfo"
       },
       "sGwInfo": {
@@ -314,11 +317,8 @@
     }
   },
   "CellId": {
-    "type": "array",
-    "items": {
-      "type": "string",
-      "format": "binary"
-    },
+    "type": "string",
+    "format": "binary",
     "description": "The E-UTRAN Cell Identity as a bit string (size (28)), as defined in 3GPP TS 36.413",
     "example": "0x800000A"
   },
@@ -363,10 +363,9 @@
         "example": "UE_IPV4_ADDRESS"
       },
       "value": {
-        "type": "integer",
-        "format": "int32",
+        "type": "string",
         "description": "Value for the identifier",
-        "example": 1
+        "example": "192.0.0.2"
       }
     }
   },
@@ -376,8 +375,11 @@
       "qci": {
         "$ref": "#/definitions/Qci"
       },
-      "qci_information": {
-        "$ref": "#/definitions/QosInformation"
+      "qosInformation": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/QosInformation"
+        }
       }
     }
   },
@@ -688,10 +690,14 @@
   "CellChangeSubscriptionPost": {
     "type": "object",
     "required": [
+      "subscriptionType",
       "callbackReference",
       "filterCriteria"
     ],
     "properties": {
+      "subscriptionType": {
+        "$ref": "#/definitions/SubscriptionType"
+      },
       "callbackReference": {
         "$ref": "#/definitions/CallbackReference"
       },
@@ -814,7 +820,8 @@
       "MEAS_REPORT_UE",
       "MEAS_TIMING_ADVANCE",
       "CA_RECONF",
-      "S1_BEARE"
+      "S1_BEARE",
+      "WRONG_PARAMETER"
     ],
     "example": "CELL_CHANGE"
   },
