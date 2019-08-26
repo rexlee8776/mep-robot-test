@@ -28,6 +28,14 @@ https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purpo
 https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/SRV/RNIS/RnisQuery_BV.tplan2
 https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/SRV/RNIS/RnisQuery_BI_BO.tplan2
 
+- TC_MEC_SRV_RNIS_001_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_002_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_003_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_004_OK       <font color="color:green">To be tested</font>
+
 - TC_MEC_SRV_RNIS_011_OK       <font color="color:green">To be tested</font>
 
 - TC_MEC_SRV_RNIS_012_OK       <font color="color:green">To be tested</font>
