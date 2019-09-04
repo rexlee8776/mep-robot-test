@@ -3,6 +3,26 @@
 ## Introduction
 This file provides the list of the TODOs related to the STF 569.
 
+## MEO
+
+###
+
+### UEAPPCTX
+
+ETSI GS MEC 016 V2.1.1
+
+https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/MEO/UEAPPCTX/SysUeAppsContext.tplan2
+
+<TODO>
+
+### UEAPPS
+
+ETSI GS MEC 016 V2.1.1
+
+https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/MEO/UEAPPS/SysUeApplications.tplan2
+
+<TODO>
+
 ## SRV
 
 ### AMS
@@ -12,6 +32,12 @@ This file provides the list of the TODOs related to the STF 569.
 ### APPSUB
 
 ### BWA
+
+Draft ETSI GS MEC 015 1.1.1
+
+https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/SRV/BWA/PlatBandwidthManager.tplan2
+
+<TODO>
 
 ### DNS
 
@@ -35,6 +61,16 @@ https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purpo
 - TC_MEC_SRV_RNIS_003_OK       <font color="color:green">To be tested</font>
 
 - TC_MEC_SRV_RNIS_004_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_005_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_006_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_007_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_008_OK       <font color="color:green">To be tested</font>
+
+<TODO>
 
 - TC_MEC_SRV_RNIS_011_OK       <font color="color:green">To be tested</font>
 
