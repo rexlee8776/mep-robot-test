@@ -13,7 +13,8 @@ ETSI GS MEC 016 V2.1.1
 
 https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/MEO/UEAPPCTX/SysUeAppsContext.tplan2
 
-<TODO>
+TODO
+
 
 ### UEAPPS
 
@@ -21,7 +22,8 @@ ETSI GS MEC 016 V2.1.1
 
 https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/MEO/UEAPPS/SysUeApplications.tplan2
 
-<TODO>
+TODO
+
 
 ## SRV
 
@@ -70,7 +72,7 @@ https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purpo
 
 - TC_MEC_SRV_RNIS_008_OK       <font color="color:green">To be tested</font>
 
-<TODO>
+TODO: TC_MEC_SRV_RNIS_009_OK, TC_MEC_SRV_RNIS_010_OK
 
 - TC_MEC_SRV_RNIS_011_OK       <font color="color:green">To be tested</font>
 
