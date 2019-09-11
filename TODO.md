@@ -22,7 +22,25 @@ ETSI GS MEC 016 V2.1.1
 
 https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes/MEO/UEAPPS/SysUeApplications.tplan2
 
-TODO
+- TC_MEC_SRV_BWA_001_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_001_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_002_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_002_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_003_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_003_NF       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_004_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_004_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_004_NF       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_004_PF       <font color="color:green">To be tested</font>
 
 
 ## SRV
