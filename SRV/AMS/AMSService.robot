@@ -45,7 +45,7 @@ Register a new application mobility services
     [Documentation]   TP_MEC_SRV_AMS_002_OK
     ...  Check that the AMS service creates a new application mobility services when requested
     ...  ETSI GS MEC 021 2.0.8, clause 8.3.3.4
-    Create a new application mobility service      RegistrationRequest
+    Create a new application mobility service      RegistrationInfo
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    AppMobilityServiceInfo
     Log    Checking Postcondition
@@ -56,7 +56,7 @@ Register an UE Identity Tag using invalid parameter
     [Documentation]   TP_MEC_SRV_AMS_002_BR
     ...  Check that the AMS service sends an error when it receives a malformed request to create a new application mobility service
     ...  ETSI GS MEC 021 2.0.8, clause 8.3.3.4
-    Create a new application mobility service    RegistrationRequestMalformed
+    Create a new application mobility service    RegistrationInfoMalformed
     Check HTTP Response Status Code Is    400
 
 
@@ -69,7 +69,7 @@ Request Subscriptions List for the registered AMS services
     ...  ETSI GS MEC 021 2.0.8, clause 8.6.3.1
     Get Subscriptions for registered AMS
     Check HTTP Response Status Code Is    200
-    Check HTTP Response Body Json Schema Is    SubscriptionLinks
+    Check HTTP Response Body Json Schema Is    SubscriptionLinkList
 
 
 
@@ -218,7 +218,7 @@ Post Expire Notification
     ...  Check that the AMS service sends an AMS notification on subscription expiration
     ...    if the AMS service has an associated subscription and the event is generated
     ...  ETSI GS MEC 021 2.0.8, clause 7.4.4
-    ${json}=	Get File	schemas/ExpireNotification.schema.json
+    ${json}=	Get File	schemas/ExpiryNotification.schema.json
     Log  Creating mock request and response to handle Expire Notification
     &{req}=  Create Mock Request Matcher	POST  ${callback_endpoint}  body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=  Create Mock Response	headers="Content-Type: application/json"  status_code=204
