@@ -9,7 +9,6 @@ Resource    resources/BandwidthManagerAPI.robot
 Library     REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 
 
-
 *** Test Cases ***
 Request the list of configured bandwidth allocations
     [Documentation]   TC_MEC_SRV_BWA_001_OK
@@ -80,15 +79,15 @@ Updates the requested bandwidth requirements
     ...  Reference ETSI GS MEC 015 V1.1.1, clause 8.3.3.2
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # Preamble
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
-    Update a bandwidth allocation    ${allocation_id}    ${REQUEST_FOR_BW_REQUIREMENTS}
+    Update a bandwidth allocation    ${ALLOCATION_ID}    ${REQUEST_FOR_BW_REQUIREMENTS}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is   bwInfo
     Check AppInstanceId    ${APP_INSTANCE_ID}
-    Check Allocation    ${allocation_id}
+    Check Allocation    ${ALLOCATION_ID}
     # Postamble
-    Unregister Bandwidth Management Service    ${allocation_id}
+    Unregister Bandwidth Management Service
 
 
 Updates the requested bandwidth requirements using wrong allocationDirection
@@ -97,13 +96,13 @@ Updates the requested bandwidth requirements using wrong allocationDirection
     ...  Reference ETSI GS MEC 015 V1.1.1, clause 8.3.3.2
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # Preamble
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
-    Update a bandwidth allocation    ${allocation_id}    ${REQUEST_FOR_BW_REQUIREMENTS_BR}
+    Update a bandwidth allocation    ${ALLOCATION_ID}    ${REQUEST_FOR_BW_REQUIREMENTS_BR}
     Check HTTP Response Status Code Is    400
     Check ProblemDetails    400
     # Postamble
-    Unregister Bandwidth Management Service    ${allocation_id}
+    Unregister Bandwidth Management Service
 
 
 Updates the requested bandwidth requirements using wrong allocationId
@@ -123,13 +122,13 @@ Updates the requested bandwidth requirements using wrong parameters
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # TODO Application doesn't comply with a required condition???
     # Preamble
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
-    Update a bandwidth allocation with invalid ETAG    ${allocation_id}    ${REQUEST_FOR_BW_REQUIREMENTS}
+    Update a bandwidth allocation with invalid ETAG    ${ALLOCATION_ID}    ${REQUEST_FOR_BW_REQUIREMENTS}
     Check HTTP Response Status Code Is    412
     Check ProblemDetails    412
     # Postamble
-    Unregister Bandwidth Management Service    ${allocation_id}
+    Unregister Bandwidth Management Service
 
 
 Request for deltas changes
@@ -138,15 +137,15 @@ Request for deltas changes
     ...  Reference ETSI GS MEC 015 V1.1.1, clause 8.3.3.3
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # Preamble
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
-    Request a deltas changes    ${allocation_id}    ${REQUEST_FOR_DELTAS_CHANGES}
+    Request a deltas changes    ${ALLOCATION_ID}    ${REQUEST_FOR_DELTAS_CHANGES}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is   bwInfo
     Check AppInstanceId    ${APP_INSTANCE_ID}
-    Check Allocation   ${allocation_id}
+    Check Allocation   ${ALLOCATION_ID}
     # Postamble
-    Unregister Bandwidth Management Service    ${allocation_id}
+    Unregister Bandwidth Management Service
 
 
 Request for deltas changes using invalid requestType
@@ -155,13 +154,13 @@ Request for deltas changes using invalid requestType
     ...  Reference ETSI GS MEC 015 V1.1.1, clause 8.3.3.3
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # Preamble
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
-    Request a deltas changes    ${allocation_id}    ${REQUEST_FOR_DELTAS_CHANGES_BR}
+    Request a deltas changes    ${ALLOCATION_ID}    ${REQUEST_FOR_DELTAS_CHANGES_BR}
     Check HTTP Response Status Code Is    400
     Check ProblemDetails    400
     # Postamble
-    Unregister Bandwidth Management Service    ${allocation_id}
+    Unregister Bandwidth Management Service
 
 
 Request for deltas changes using an unknown URI
@@ -180,13 +179,13 @@ Request for deltas changes using wrong parameters
     ...  Reference ETSI GS MEC 015 V1.1.1, clause 8.3.3.3
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # Preamble
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
-    Request a deltas changes with invalid ETAG    ${allocation_id}    ${REQUEST_FOR_DELTAS_CHANGES}
+    Request a deltas changes with invalid ETAG    ${ALLOCATION_ID}    ${REQUEST_FOR_DELTAS_CHANGES}
     Check HTTP Response Status Code Is    412
     Check ProblemDetails    412
     # Postamble
-    Unregister Bandwidth Management Service    ${allocation_id}
+    Unregister Bandwidth Management Service
 
 
 Request to unregister bandwidth Management Service
@@ -197,13 +196,13 @@ Request to unregister bandwidth Management Service
     # Preamble
     Should Be True    ${PIC_MEC_PLAT} == 1
     Should Be True    ${PIC_SERVICES} == 1
-    ${allocation_id}     ${etag_value}=    Register Bandwidth Management Service
+    Register Bandwidth Management Service
     # Test body
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
     Set Headers    {"Content-Length":"0"}
-    Delete    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}
+    Delete    /exampleAPI/bwm/v1/bw_allocations/${ALLOCATION_ID}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
     Check HTTP Response Status Code Is    204
@@ -230,97 +229,97 @@ Request to unregister bandwidth Management Service with wrong parameters
 
 
 *** Keywords ***
-    Retrieve the list of configured bandwidth allocations
-        [Arguments]    ${app_instance_id}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"Content-Length":"0"}
-        Get    /exampleAPI/bwm/v1/bw_allocations/${app_instance_id}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Retrieve the list of configured bandwidth allocations
+    [Arguments]    ${app_instance_id}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"Content-Length":"0"}
+    Get    /exampleAPI/bwm/v1/bw_allocations/${app_instance_id}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
 
 
-    Registration for bandwidth services
-        [Arguments]    ${app_instance_id}    ${content}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"Content-Length":"0"}
-        log    ${content}
-        Post    /exampleAPI/bwm/v1/bw_allocations/${APP_INSTANCE_ID}    ${content}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Registration for bandwidth services
+    [Arguments]    ${app_instance_id}    ${content}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"Content-Length":"0"}
+    log    ${content}
+    Post    /exampleAPI/bwm/v1/bw_allocations/${APP_INSTANCE_ID}    ${content}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
 
 
-    Get a bandwidth allocation
-        [Arguments]    ${allocation_id}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"Content-Length":"0"}
-        Get    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Get a bandwidth allocation
+    [Arguments]    ${allocation_id}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"Content-Length":"0"}
+    Get    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
 
 
-    Update a bandwidth allocation
-        [Arguments]    ${allocation_id}    ${content}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"${ETAG_LABEL}":"${ETAG}"}
-        Set Headers    {"Content-Length":"0"}
-        Put    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Update a bandwidth allocation
+    [Arguments]    ${allocation_id}    ${content}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"ETag":"${ETAG_VALUE}"}
+    Set Headers    {"Content-Length":"0"}
+    Put    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
 
 
-    Update a bandwidth allocation with invalid ETAG
-        [Arguments]    ${allocation_id}    ${content}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"${ETAG_LABEL}":"${INVALID_ETAG}"}
-        Set Headers    {"Content-Length":"0"}
-        Put    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Update a bandwidth allocation with invalid ETAG
+    [Arguments]    ${allocation_id}    ${content}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"${ETAG_LABEL}":"${INVALID_ETAG}"}
+    Set Headers    {"Content-Length":"0"}
+    Put    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
 
 
-    Request a deltas changes
-        [Arguments]    ${allocation_id}    ${content}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"${ETAG_LABEL}":"${ETAG}"}
-        Set Headers    {"Content-Length":"0"}
-        Patch    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Request a deltas changes
+    [Arguments]    ${allocation_id}    ${content}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"${ETAG_LABEL}":"${ETAG}"}
+    Set Headers    {"Content-Length":"0"}
+    Patch    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
 
 
-    Request a deltas changes with invalid ETAG
-        [Arguments]    ${allocation_id}    ${content}
-        Should Be True    ${PIC_MEC_PLAT} == 1
-        Should Be True    ${PIC_SERVICES} == 1
-        Set Headers    {"Accept":"application/json"}
-        Set Headers    {"Content-Type":"application/json"}
-        Set Headers    {"Authorization":"${TOKEN}"}
-        Set Headers    {"${ETAG_LABEL}":"${INVALID_ETAG}"}
-        Set Headers    {"Content-Length":"0"}
-        Patch    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
-        ${output}=    Output    response
-        Set Suite Variable    ${response}    ${output}
+Request a deltas changes with invalid ETAG
+    [Arguments]    ${allocation_id}    ${content}
+    Should Be True    ${PIC_MEC_PLAT} == 1
+    Should Be True    ${PIC_SERVICES} == 1
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"${ETAG_LABEL}":"${INVALID_ETAG}"}
+    Set Headers    {"Content-Length":"0"}
+    Patch    /exampleAPI/bwm/v1/bw_allocations/${allocation_id}    ${content}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
