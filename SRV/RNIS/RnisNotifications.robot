@@ -21,7 +21,7 @@ Cell change notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle Cell change notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/cell_change    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/cell_change    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -39,7 +39,7 @@ RAB Establishment notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle RAB establishment notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/rab_est    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/rab_est    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -57,7 +57,7 @@ RAB modification notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle RAB modification notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/rab_mod    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/rab_mod    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -75,7 +75,7 @@ RAB release notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle RAB release notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/rab_rel    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/rab_rel    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -93,7 +93,7 @@ UE measurement notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle UE measurement notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/MeasRepUeNotification    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/MeasRepUeNotification    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -111,7 +111,7 @@ UE timing advance notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle UE timing advance notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/MeasTaNotification    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/MeasTaNotification    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -129,7 +129,7 @@ UE carrier aggregation reconfiguration notification
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
     Log  Creating mock request and response to handle UE carrier aggregation reconfiguration notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/CaReconfSubscription    body_type="JSON_SCHEMA"    body=${json}
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/CaReconfSubscription    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
@@ -146,8 +146,44 @@ S1-U bearer notification
     ...  Reference https://forge.etsi.org/gitlab/mec/gs012-rnis-api/blob/master/RniAPI.yaml
     Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
     ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
-    Log  Creating mock request and response to handle UE S1-U bearer notification
-    &{req}=    Create Mock Request Matcher    POST    ${callback_endpoint}/S1BearerSubscription    body_type="JSON_SCHEMA"    body=${json}
+    Log  Creating mock request and response to handle S1-U bearer notification
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/S1BearerSubscription    body_type="JSON_SCHEMA"    body=${json}
+    &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
+    Create Mock Expectation    ${req}    ${rsp}
+    Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
+    Log  Verifying results
+    Verify Mock Expectation    ${req}
+    Log  Cleaning the endpoint
+    Clear Requests    ${callback_endpoint}
+
+
+UE Measurement notification
+    [Documentation]   TC_MEC_SRV_RNIS_009_OK
+    ...  Check that the RNIS service sends an RNIS notification about 5G NR UE measurement report if the RNIS service has an associated subscription and the event is generated
+    ...  ETSI GS MEC 012 2.0.4, clause 6.4.11
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs012-rnis-api/blob/master/RniAPI.yaml
+    Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
+    ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
+    Log  Creating mock request and response to handle UE Measurement notification
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}/meas_rep_ue    body_type="JSON_SCHEMA"    body=${json}
+    &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
+    Create Mock Expectation    ${req}    ${rsp}
+    Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}
+    Log  Verifying results
+    Verify Mock Expectation    ${req}
+    Log  Cleaning the endpoint
+    Clear Requests    ${callback_endpoint}
+
+
+UE Measurement notification
+    [Documentation]   TC_MEC_SRV_RNIS_010_OK
+    ...  Check that the RNIS service sends an RNIS notification on subscription expiration if the RNIS service has an associated subscription and the event is generated
+    ...  ETSI GS MEC 012 2.0.4, clause 6.4.9
+    ...  Reference https://forge.etsi.org/gitlab/mec/gs012-rnis-api/blob/master/RniAPI.yaml
+    Should Be True    ${PIC_RNIS_NOTIFICATIONS} == 1
+    ${json}=    Get File    schemas/RadioNetworkInformationAPI.schema.json
+    Log  Creating mock request and response to handle UE Measurement notification
+    &{req}=    Create Mock Request Matcher    POST    ${callback_uri}${callback_endpoint}    body_type="JSON_SCHEMA"    body=${json}
     &{rsp}=    Create Mock Response    headers="Content-Type: application/json"    status_code=204
     Create Mock Expectation    ${req}    ${rsp}
     Wait Until Keyword Succeeds    ${total_polling_time}    ${polling_interval}    Verify Mock Expectation    ${req}

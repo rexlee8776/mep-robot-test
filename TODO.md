@@ -90,7 +90,9 @@ https://forge.etsi.org/gitlab/mec/gs032p2-test-purposes/blob/master/Test%20Purpo
 
 - TC_MEC_SRV_RNIS_008_OK       <font color="color:green">To be tested</font>
 
-TODO: TC_MEC_SRV_RNIS_009_OK, TC_MEC_SRV_RNIS_010_OK
+- TC_MEC_SRV_RNIS_009_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_RNIS_010_OK       <font color="color:green">To be tested</font>
 
 - TC_MEC_SRV_RNIS_011_OK       <font color="color:green">To be tested</font>
 
