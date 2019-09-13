@@ -4,14 +4,16 @@ ${MEC-APP_SCHEMA}                   http
 #${MEC-APP_HOST}                     127.0.0.1
 ${MEC-APP_HOST}                     192.168.56.1
 ${MEC-APP_PORT}                     8081
-${ZONE_ID}                          zone01
+${ETAG_LABEL}                       Location
+${INVALID_ETAG}                     invalid_etag
 ${APP_INSTANCE_ID}                  appInst01
 ${NON_EXISTENT_APP_INSTANCE_ID}     appInst99
 ${ALLOCATION_ID}                    allInst01
 ${NON_EXISTENT_ALLOCATION_ID}       allInst99
-${FIXED_ALLOCATION}                 string
-${REQUEST_FOR_BW_REQUIREMENTS}      "{ "appInsId": "${APP_INSTANCE_ID}", "requestType": "APPLICATION_SPECIFIC_BW_ALLOCATION", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "00 = Downlink (towards the UE)"}"
-${REQUEST_FOR_BW_REQUIREMENTS_BR}   "{ "appInsId": "${APP_INSTANCE_ID}", "requestType": "UNKMOWN", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "00 = Downlink (towards the UE)"}"
-${REQUEST_FOR_BW_REQUIREMENTS_ID}   "{ "appInsId": "${APP_INSTANCE_ID}", "requestType": "APPLICATION_SPECIFIC_BW_ALLOCATION", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "99 = DownAndDownlink (towards the UE)"}"
+${FIXED_ALLOCATION}                 fixed_allocation
+${REQUEST_FOR_BW_REQUIREMENTS}      { "appInsId": "${APP_INSTANCE_ID}", "requestType": "APPLICATION_SPECIFIC_BW_ALLOCATION", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "00 = Downlink (towards the UE)"}
+${REQUEST_FOR_BW_REQUIREMENTS_BR}   { "appInsId": "${APP_INSTANCE_ID}", "requestType": "UNKMOWN", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "00 = Downlink (towards the UE)"}
+${REQUEST_FOR_DELTAS_CHANGES}       { "appInsId": "${APP_INSTANCE_ID}", "requestType": "APPLICATION_SPECIFIC_BW_ALLOCATION", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "string", "allocationDirection": "00 = Downlink (towards the UE)"}
+${REQUEST_FOR_DELTAS_CHANGES_BR}    { "appInsId": "${APP_INSTANCE_ID}", "requestType": "UNKNOWN", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "string", "allocationDirection": "00 = Downlink (towards the UE)"}
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l

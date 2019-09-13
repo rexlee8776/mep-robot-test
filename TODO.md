@@ -42,6 +42,18 @@ https://forge.etsi.org/rep/mec/gs032p2-test-purposes/blob/master/Test%20Purposes
 
 - TC_MEC_SRV_BWA_004_PF       <font color="color:green">To be tested</font>
 
+- TC_MEC_SRV_BWA_005_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_005_BR       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_005_NF       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_005_PF       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_006_OK       <font color="color:green">To be tested</font>
+
+- TC_MEC_SRV_BWA_006_NF       <font color="color:green">To be tested</font>
+
 
 ## SRV
 
