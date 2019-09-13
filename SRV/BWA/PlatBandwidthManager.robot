@@ -298,7 +298,7 @@ Request to unregister bandwidth Management Service with wrong parameters
         Set Suite Variable    ${response}    ${output}
 
 
-Request a deltas changes
+    Request a deltas changes
         [Arguments]    ${allocation_id}    ${content}
         Should Be True    ${PIC_MEC_PLAT} == 1
         Should Be True    ${PIC_SERVICES} == 1
@@ -312,7 +312,7 @@ Request a deltas changes
         Set Suite Variable    ${response}    ${output}
 
 
-Request a deltas changes with invalid ETAG
+    Request a deltas changes with invalid ETAG
         [Arguments]    ${allocation_id}    ${content}
         Should Be True    ${PIC_MEC_PLAT} == 1
         Should Be True    ${PIC_SERVICES} == 1
