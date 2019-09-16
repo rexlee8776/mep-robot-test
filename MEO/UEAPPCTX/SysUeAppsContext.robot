@@ -1,4 +1,4 @@
-''[Documentation]   robot --outputdir ../../outputs ./PlatBandwidthManager.robot
+''[Documentation]   robot --outputdir ../../outputs ./SysUeAppContext.robot
 ...    Test Suite to validate Bandwidth Management API (BWA) operations.
 
 *** Settings ***
@@ -17,7 +17,7 @@ Creation of the application context
     ...  Reference ETSI GS MEC 016 V1.1.1, clause 7.4.3.4
     ...  Reference https://forge.etsi.org/gitlab/mec/gs016-ue-app-api/blob/master/UEAppInterfaceApi.yaml#/definitions/AppContext
     Create application context    ${CREATE_APP_CTX}
-    Check HTTP Response Status Code Is    20
+    Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is   AppContext
     Should Be True    ${response['body']['appContext']['appInfo']['appName']} == ${APP_NAME}
     # Postamble
