@@ -21,3 +21,15 @@ Create an application context
     Check HTTP Response Body Json Schema Is   AppContext
     Set Suite Variable    ${APP_CTX_ID}    ${response['body']['contextId']
     Should Not Be Empty    ${APP_CTX_ID}
+
+
+Delete an application context
+    [Arguments]    ${context_id}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"Content-Length":"0"}
+    Delete    /exampleAPI/mx2/v2/app_contexts/${context_id}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+    Check HTTP Response Status Code Is    204
