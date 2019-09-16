@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.3 on linux)" generated="20190716 18:45:54.296" rpa="false">
+<suite id="s1" name="PlatAppServices" source="/home/fcferreira/projects/etsi/stf569/gs032p3-robot-test-suite/SRV/APPSAQ/PlatAppServices.robot">
+<test id="s1-t1" name="Get the available MEC services for a given application instance">
+<kw name="Get Selection From User">
+<arguments>
+<arg>Select user</arg>
+<arg>user1</arg>
+<arg>user2</arg>
+<arg>admin</arg>
+</arguments>
+<assign>
+<var>${user} =</var>
+</assign>
+<msg timestamp="20190716 18:45:54.475" level="FAIL">No keyword with name 'Get Selection From User' found.</msg>
+<status status="FAIL" starttime="20190716 18:45:54.475" endtime="20190716 18:45:54.475"></status>
+</kw>
+<doc>Check that the IUT responds with a list of available MEC services
+for a given application instance when queried by a MEC Application
+
+Reference ETSI GS MEC 011 V2.0.8, clause 7.15.3.1
+OpenAPI https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/ServiceInfo</doc>
+<tags>
+<tag>TP_MEC_SRV_APPSAQ_001_OK</tag>
+<tag>TP_MEC_SRV_APPSAQ_BV</tag>
+</tags>
+<status status="FAIL" starttime="20190716 18:45:54.472" endtime="20190716 18:45:54.475" critical="yes">No keyword with name 'Get Selection From User' found.</status>
+</test>
+<doc>A test suite for validating Application Service Availability Query (APPSAQ) operations.</doc>
+<status status="FAIL" starttime="20190716 18:45:54.297" endtime="20190716 18:45:54.475"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1">TP_MEC_SRV_APPSAQ_001_OK</stat>
+<stat pass="0" fail="1">TP_MEC_SRV_APPSAQ_BV</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="PlatAppServices">PlatAppServices</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20190716 18:45:54.472" level="ERROR">Error in file '/home/fcferreira/projects/etsi/stf569/gs032p3-robot-test-suite/SRV/APPSAQ/PlatAppServices.robot': Importing test library 'robot.libraries.Dialogs' failed: ModuleNotFoundError: No module named 'tkinter'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /home/fcferreira/.virtualenvs/robot/bin
+  /home/fcferreira/.virtualenvs/robot/lib64/python37.zip
+  /home/fcferreira/.virtualenvs/robot/lib64/python3.7
+  /home/fcferreira/.virtualenvs/robot/lib64/python3.7/lib-dynload
+  /usr/lib64/python3.7
+  /usr/lib/python3.7
+  /home/fcferreira/.virtualenvs/robot/lib/python3.7/site-packages</msg>
+</errors>
+</robot>

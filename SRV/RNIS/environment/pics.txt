@@ -1,0 +1,3 @@
+*** Variables ***
+
+${PIC_RNIS_SPECIFIC_SUBSCRIPTION}    1
