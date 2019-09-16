@@ -209,8 +209,8 @@ Request to unregister bandwidth Management Service
 
 
 Request to unregister bandwidth Management Service with wrong parameters
-    [Documentation]   TC_MEC_SRV_BWA_006_OK
-    ...  Check that the IUT unregisters from the Bandwidth Management Service when commanded by a MEC Application
+    [Documentation]   TC_MEC_SRV_BWA_006_NF
+    ...  Check that the IUT responds with an error when a request for an unknown URI is sent by a MEC Application
     ...  Reference ETSI GS MEC 015 V1.1.1, clause 8.3.3.5
     ...  Reference https://forge.etsi.org/rep/mec/gs015-bandwith-mgmt-api/blob/master/BwManagementApi.json
     # Preamble
