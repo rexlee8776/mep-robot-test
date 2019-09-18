@@ -37,3 +37,12 @@ Check ProblemDetails
     ${status}=    Convert To Integer    ${expected_status}
     Should Be Equal    ${response['body']['problemDetails']['status']}    ${status}
     Log    ProblemDetails Status code validated
+    
+Check HTTP Response Header Contains
+    [Arguments]    ${HEADER_TOCHECK}
+    Should Contain     ${response['headers']}    ${HEADER_TOCHECK}
+    Log    Header is present
+
+Check HTTP Response Body is Empty
+    Should Be Empty    ${response['body']}   
+    Log    Body is empty
