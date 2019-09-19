@@ -46,3 +46,9 @@ Check HTTP Response Header Contains
 Check HTTP Response Body is Empty
     Should Be Empty    ${response['body']}   
     Log    Body is empty
+    
+Check HTTP Response Contain Header with value
+    [Arguments]    ${HEADER_TOCHECK}    ${VALUE}
+    Check HTTP Response Header Contains    ${HEADER_TOCHECK}
+    Should Be Equal As Strings    ${value}    ${response['headers']['Content-Type']}    
+        

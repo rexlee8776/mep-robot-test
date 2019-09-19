@@ -5,9 +5,7 @@
 Resource    environment/variables.txt
 Resource    ../../GenericKeywords.robot
 Library     REST    ${MEO_SCHEMA}://${MEO_HOST}:${MEO_PORT}    ssl_verify=false
-Library     BuiltIn
 Library     OperatingSystem
-Library     MockServerLibrary
 
 
 
@@ -91,9 +89,9 @@ Create a GRANT request
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
-    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
+    ${file}=    Catenate    SEPARATOR=    jsons/    ${content}    .json
     ${body}=    Get File    ${file}
-    Post    ${apiRoot}/${apiName}/${apiVersion}/grants    ${body}
+    Post    ${apiRoot}/${apiName}/${apiVersion}/grants    ${body}    allow_redirects=false
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
 
@@ -103,7 +101,7 @@ Get an individual grant
     Set Headers    {"Accept":"application/json"}
     Set Headers    {"Content-Type":"application/json"}
     Set Headers    {"Authorization":"${TOKEN}"}
-    Get    ${apiRoot}/${apiName}/${apiVersion}/grants/${grantId}
+    Get    ${apiRoot}/${apiName}/${apiVersion}/grants/${grantId}    allow_redirects=false
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
 
