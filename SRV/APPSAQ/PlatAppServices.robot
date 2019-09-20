@@ -1,9 +1,9 @@
 *** Settings ***
 
 Documentation
-...   A test suite for validating Application Service Availability Query (APPSAQ) operations.
+...    A test suite for validating Application Service Availability Query (APPSAQ) operations.
 
-Resource    ../../resources/GenericKeywords.robot
+Resource    ../../GenericKeywords.robot
 
 Default Tags    TP_MEC_SRV_APPSAQ
 
@@ -15,11 +15,11 @@ Default Tags    TP_MEC_SRV_APPSAQ
 
 TP_MEC_SRV_APPSAQ_001_OK
     [Documentation]
-    ...   Check that the IUT responds with a list of available MEC services
-    ...   for a given application instance when queried by a MEC Application
+    ...    Check that the IUT responds with a list of available MEC services
+    ...    for a given application instance when queried by a MEC Application
     ...
-    ...   Reference   ETSI GS MEC 011 V2.0.8, clause 7.15.3.1
-    ...   OpenAPI     https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/ServiceInfo
+    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.15.3.1
+    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/ServiceInfo
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -31,9 +31,9 @@ TP_MEC_SRV_APPSAQ_001_OK
 TP_MEC_SRV_APPSAQ_001_BR
     [Documentation]
     ...   Check that the IUT responds with an error when
-    ...   a request with incorrect parameters is sent by a MEC Application
+    ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...   Reference   ETSI GS MEC 011 V2.0.8, clause 7.15.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.15.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -44,14 +44,14 @@ TP_MEC_SRV_APPSAQ_001_BR
 
 TP_MEC_SRV_APPSAQ_002_OK
     [Documentation]
-    ...   Check that the IUT notifies the authorised relevant (subscribed) application
-    ...   instances when a new service for a given application instance is registered
+    ...    Check that the IUT notifies the authorised relevant (subscribed) application
+    ...    instances when a new service for a given application instance is registered
     ...
-    ...   Reference   ETSI GS MEC 011 V2.0.8, clause 7.15.3.4
+    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.15.3.4
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Register new service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA}
+    vPOST    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA}
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    ServiceInfo
     Check HTTP Response Header    Location    ${LOCATION_HEADER}
@@ -68,7 +68,7 @@ TP_MEC_SRV_APPSAQ_002_BR
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Register new service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA_BR}
+    vPOST    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA_BR}
     Check HTTP Response Status Code Is    400
 
 
@@ -81,7 +81,7 @@ TP_MEC_SRV_APPSAQ_002_NF
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Register new service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${NON_EXISTENT_APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA}
+    vPOST    /${PX_MEC_SVC_MGMT_APPS_URI}/${NON_EXISTENT_APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA}
     Check HTTP Response Status Code Is    404
 
 
@@ -124,7 +124,7 @@ TP_MEC_SRV_APPSAQ_004_OK
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Update service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA}
+    vPUT    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    ServiceInfo
     Check Result Contains    ${response['body']['ServiceInfo']}    version    ${SVC_NEW_VERSION}
@@ -139,7 +139,7 @@ TP_MEC_SRV_APPSAQ_004_BR
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Update service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA_BR}
+    vPUT    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA_BR}
     Check HTTP Response Status Code Is    400
 
 
@@ -152,7 +152,7 @@ TP_MEC_SRV_APPSAQ_004_NF
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Update service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${NON_EXISTENT_SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA}
+    vPUT    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${NON_EXISTENT_SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA}
     Check HTTP Response Status Code Is    404
 
 
@@ -165,23 +165,12 @@ TP_MEC_SRV_APPSAQ_004_PF
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    Improperly Update service for MEC Application    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA}
+    vPUT invalid e-tag    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services/${SERVICE_ID}    ${MEC_APP_SVC_UPDT_DATA}
     Check HTTP Response Status Code Is    412
 
 
 
 *** Keywords ***
-
-Register new service for MEC Application
-    [Documentation]
-    ...    
-
-    [Arguments]    ${uri}    ${content}
-
-    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
-    ${body}=    Get File    ${file}
-    vPOST    ${uri}    ${body}
-
 
 Check Plaform IUT notifies the MEC Application instances
     [Documentation]
@@ -204,32 +193,3 @@ Check Plaform IUT notifies the MEC Application instances
     # ;
     # ;
     # to the MEC_APP_Subscriber entity
-
-
-Update service for MEC Application
-    [Documentation]
-    ...    
-
-    [Arguments]    ${uri}    ${content}
-
-    # Retrieve the e-tag value to ensure a proper update.
-    vGET    ${uri}
-    ${etag}=    ${response['headers']['If-Match']}
-
-    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
-    ${body}=    Get File    ${file}
-    Set Headers    {"If-Match":"${etag}"}
-    vPUT    ${uri}    ${body}
-
-
-Improperly Update service for MEC Application
-    [Documentation]
-    ...    
-
-    [Arguments]    ${uri}    ${content}
-
-    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
-    ${body}=    Get File    ${file}
-    Set Headers    {"If-Match":"__some_invalid_etag__"}
-    vPUT    ${uri}    ${body}
-
