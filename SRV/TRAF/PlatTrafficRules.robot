@@ -19,7 +19,7 @@ TP_MEC_SRV_TRAF_001_OK
     ...    when queried by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.10.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/TrafficRule
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -47,7 +47,7 @@ TP_MEC_SRV_TRAF_002_OK
     ...    when queried by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.11.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/TrafficRule
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -63,7 +63,7 @@ TP_MEC_SRV_TRAF_003_OK
     ...    when commanded by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.11.3.2
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/TrafficRule
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -80,6 +80,7 @@ TP_MEC_SRV_TRAF_003_BR
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.11.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -93,6 +94,7 @@ TP_MEC_SRV_TRAF_003_NF
     ...    a request for an unknown URI is sent by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.11.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -106,6 +108,7 @@ TP_MEC_SRV_TRAF_003_PF
     ...    a request sent by a MEC Application doesn't comply with a required condition
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.11.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

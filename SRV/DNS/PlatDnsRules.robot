@@ -18,8 +18,8 @@ TP_MEC_SRV_DNS_001_OK
     ...    Check that the IUT responds with a list of active DNS rules
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.12.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/DnsRule
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.9.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -33,8 +33,8 @@ TP_MEC_SRV_DNS_002_OK
     ...    Check that the IUT responds with the information on a specific DNS rule
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/DnsRule
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.10.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -49,7 +49,7 @@ TP_MEC_SRV_DNS_002_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.10.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -62,8 +62,8 @@ TP_MEC_SRV_DNS_003_OK
     ...    Check that the IUT updates a specific DNS rule
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.2
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/DnsRule
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.10.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -79,7 +79,8 @@ TP_MEC_SRV_DNS_003_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.2
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.10.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -92,7 +93,8 @@ TP_MEC_SRV_DNS_003_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.2
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.10.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -105,7 +107,8 @@ TP_MEC_SRV_DNS_003_PF
     ...    Check that the IUT responds with an error when
     ...    a request sent by a MEC Application doesn't comply with a required condition
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.2
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.10.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

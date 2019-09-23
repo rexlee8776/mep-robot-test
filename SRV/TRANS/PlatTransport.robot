@@ -19,7 +19,7 @@ TP_MEC_SRV_TRANS_001_OK
     ...    when queried by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.9.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/TransportInfo
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TransportInfo
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

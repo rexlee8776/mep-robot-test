@@ -18,8 +18,8 @@ TP_MEC_SRV_SRVSUB_001_OK
     ...    Check that the IUT responds with a list of subscriptions for notifications
     ...    on services availability when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause7.2.3.2
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/Mp1SubscriptionLinkList
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.8.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecServiceMgmtApi.yaml#/definitions/MecServiceMgmtApiSubscriptionLinkList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -33,7 +33,7 @@ TP_MEC_SRV_SRVSUB_001_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause 7.6.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.8.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -46,14 +46,14 @@ TP_MEC_SRV_SRVSUB_002_OK
     ...    Check that the IUT acknowledges the subscription by a MEC Application
     ...    to notifications on service availability events
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause 7.6.3.4
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/SerAvailabilityNotificationSubscription
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.8.3.4
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecServiceMgmtApi.yaml#/definitions/SerAvailabilityNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
     vPOST    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/subscriptions    ${MEC_APP_SRVSUB_DATA}
     Check HTTP Response Status Code Is    201
-    Check HTTP Response Body Json Schema Is    DnsRule
+    Check HTTP Response Body Json Schema Is    SerAvailabilityNotificationSubscription
     Check HTTP Response Header    Location    ${LOCATION_HEADER}
     Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    subscriptionType    "SerAvailabilityNotificationSubscription"
     Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    callbackReference    ${APP_SRVSUB_NOTIF_CALLBACK_URI}
@@ -64,7 +64,8 @@ TP_MEC_SRV_SRVSUB_002_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause 7.6.3.4
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.8.3.4
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecServiceMgmtApi.yaml#/definitions/SerAvailabilityNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -77,8 +78,8 @@ TP_MEC_SRV_SRVSUB_003_OK
     ...    Check that the IUT responds with the information on a specific subscription
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause 7.5.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/SerAvailabilityNotificationSubscription
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.9.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecServiceMgmtApi.yaml#/definitions/SerAvailabilityNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -93,7 +94,7 @@ TP_MEC_SRV_SRVSUB_003_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.2
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.9.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -106,7 +107,7 @@ TP_MEC_SRV_SRVSUB_004_OK
     ...    Check that the IUT acknowledges the unsubscribe from service availability event notifications
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause 7.5.3.5
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.9.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -119,7 +120,7 @@ TP_MEC_SRV_SRVSUB_004_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.4, clause 7.5.3.5
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.9.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

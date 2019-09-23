@@ -18,8 +18,8 @@ TP_MEC_SRV_APPSUB_001_OK
     ...    Check that the IUT responds with a list of subscriptions for notifications
     ...    on services availability when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.6.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/Mp1SubscriptionLinkList
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.3.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/MecAppSuptApiSubscriptionLinkList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -33,7 +33,7 @@ TP_MEC_SRV_APPSUB_001_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.6.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.3.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -46,7 +46,8 @@ TP_MEC_SRV_APPSUB_002_OK
     ...    Check that the IUT acknowledges the subscription by a MEC Application
     ...    to notifications on service availability events
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.6.3.4"
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.3.3.4
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/AppTerminationNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -63,8 +64,8 @@ TP_MEC_SRV_APPSUB_003_OK
     ...    Check that the IUT responds with the information on a specific subscription
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.5.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/SerAvailabilityNotificationSubscription
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/AppTerminationNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -79,7 +80,7 @@ TP_MEC_SRV_APPSUB_003_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.5.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -92,7 +93,7 @@ TP_MEC_SRV_APPSUB_004_OK
     ...    Check that the IUT acknowledges the unsubscribe from service availability event notifications
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.5.3.5
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -105,7 +106,7 @@ TP_MEC_SRV_APPSUB_004_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.14.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

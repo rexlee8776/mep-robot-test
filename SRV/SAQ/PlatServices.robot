@@ -18,8 +18,8 @@ TP_MEC_SRV_SAQ_001_OK
     ...    Check that the IUT responds with a list of available MEC services
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.4.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/ServiceInfo
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.3.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecServiceMgmtApi.yaml#/definitions/ServiceInfoList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -33,7 +33,7 @@ TP_MEC_SRV_SAQ_001_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.4.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.3.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -43,11 +43,11 @@ TP_MEC_SRV_SAQ_001_BR
 
 TP_MEC_SRV_SAQ_002_OK
     [Documentation]
-    ...    Check that the IUT responds with the information on a specific DNS rule
+    ...    Check that the IUT responds with the information on a specific service
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.13.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/DnsRule
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.4.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecServiceMgmtApi.yaml#/definitions/ServiceInfoList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -62,7 +62,7 @@ TP_MEC_SRV_SAQ_002_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.8, clause 7.3.3.1
+    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.4.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

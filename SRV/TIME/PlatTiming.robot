@@ -19,7 +19,7 @@ TP_MEC_SRV_TIME_001_OK
     ...    when queried by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.7.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/TimingCaps
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TimingCaps
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -34,7 +34,7 @@ TP_MEC_SRV_TIME_002_OK
     ...    when queried by a MEC Application
     ...
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.8.3.1
-    ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs011-app-enablement-api/blob/master/Mp1.yaml#/definitions/CurrentTime
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/CurrentTime
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
