@@ -1,13 +1,12 @@
 ''[Documentation]   robot --outputdir ../../outputs ./SysUeAppContext.robot
-...    Test Suite to validate Bandwidth Management API (BWA) operations.
+...    Test Suite to validate Bandwidth Management API (APPCTX) operations.
 
 *** Settings ***
 Resource    environment/variables.txt
 Resource    ../../pics.txt
 Resource    ../../GenericKeywords.robot
-Resource    resources/UeAppContextAPI.robot
+Resource    resources/UeAppsContextAPI.robot
 Library     REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
-
 
 
 *** Test Cases ***

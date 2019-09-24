@@ -55,7 +55,7 @@ TP_MEC_SRV_APPSAQ_002_OK
     vPOST    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/services    ${MEC_APP_NEW_SVC_DATA}
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    ServiceInfo
-    Check HTTP Response Header    Location    ${LOCATION_HEADER}
+    Check HTTP Response Header Contains    Location
     Check Result Contains    ${response['body']['ServiceInfo']}    serName    ${SERVICE_NAME}
     Check Plaform IUT notifies the MEC Application instances    ServiceAvailabilityNotification
 

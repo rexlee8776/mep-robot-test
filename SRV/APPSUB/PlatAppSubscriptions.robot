@@ -54,7 +54,7 @@ TP_MEC_SRV_APPSUB_002_OK
     vPOST    /${PX_ME_APP_SUPPORT_URI}/${APP_INSTANCE_ID}/subscriptions    ${APP_TERM_NOTIF_SUB}
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    AppTerminationNotificationSubscription
-    Check HTTP Response Header    Location    ${LOCATION_HEADER}
+    Check HTTP Response Header Contains    Location
     Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    subscriptionType    "AppTerminationNotificationSubscription"
     Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    callbackReference    ${APP_TERM_NOTIF_CALLBACK_URI}
 

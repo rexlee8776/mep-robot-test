@@ -54,7 +54,7 @@ TP_MEC_SRV_SRVSUB_002_OK
     vPOST    /${PX_MEC_SVC_MGMT_APPS_URI}/${APP_INSTANCE_ID}/subscriptions    ${MEC_APP_SRVSUB_DATA}
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    SerAvailabilityNotificationSubscription
-    Check HTTP Response Header    Location    ${LOCATION_HEADER}
+    Check HTTP Response Header Contains    Location
     Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    subscriptionType    "SerAvailabilityNotificationSubscription"
     Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    callbackReference    ${APP_SRVSUB_NOTIF_CALLBACK_URI}
 
