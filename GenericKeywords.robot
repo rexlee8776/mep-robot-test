@@ -1,6 +1,8 @@
 *** Settings ***
 Library    JSONSchemaLibrary    schemas/
 Library    BuiltIn
+Library    REST    ${AMS_SCHEMA}://${AMS_HOST}:${AMS_PORT}    ssl_verify=false
+Library    OperatingSystem
 
 *** Variables ***
 ${response}
@@ -51,4 +53,114 @@ Check HTTP Response Contain Header with value
     [Arguments]    ${HEADER_TOCHECK}    ${VALUE}
     Check HTTP Response Header Contains    ${HEADER_TOCHECK}
     Should Be Equal As Strings    ${value}    ${response['headers']['Content-Type']}    
-        
+
+vGET
+    [Arguments]    ${uri}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+
+    GET    ${uri}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vPOST
+    [Arguments]    ${uri}    ${content}
+
+    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
+    ${body}=    Get File    ${file}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+
+    POST    ${uri}    ${body}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vPUT
+    [Arguments]    ${uri}    ${content}
+
+    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
+    ${body}=    Get File    ${file}
+
+    # Retrieve the e-tag value to ensure a proper update.
+    vGET    ${uri}
+    Set Headers    {"If-Match":"${response['headers']['If-Match']}"}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+
+    PUT    ${uri}    ${body}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vPUT without e-tag
+    [Arguments]    ${uri}    ${content}
+
+    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
+    ${body}=    Get File    ${file}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+
+    PUT    ${uri}    ${body}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vPUT invalid e-tag
+    [Arguments]    ${uri}    ${content}
+
+    ${file}=    Catenate    SEPARATOR=    json/    ${content}    .json
+    ${body}=    Get File    ${file}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"If-Match":"__some_invalid_value__"}
+
+    PUT    ${uri}    ${body}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vDELETE
+    [Arguments]    ${uri}
+
+    # Retrieve the e-tag value to ensure a proper delete.
+    vGET    ${uri}
+    Set Headers    {"If-Match":"${response['headers']['If-Match']}"}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+
+    DELETE    ${uri}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vDELETE without e-tag
+    [Arguments]    ${uri}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+
+    DELETE    ${uri}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
+vDELETE invalid e-tag
+    [Arguments]    ${uri}
+
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Set Headers    {"If-Match":"__some_invalid_value__"}
+
+    DELETE    ${uri}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+
