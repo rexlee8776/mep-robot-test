@@ -18,7 +18,7 @@ TP_MEC_SRV_UEDISTLOOK_001_OK
     ...    Check that the IUT responds with the distance to a UE
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.9
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.9
     ...    OpenAPI    # TODO check this
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
@@ -33,7 +33,7 @@ TP_MEC_SRV_UEDISTLOOK_001_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.9
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.9
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

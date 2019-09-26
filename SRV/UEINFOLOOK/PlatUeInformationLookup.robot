@@ -18,7 +18,7 @@ TP_MEC_SRV_UEINFOLOOK_001_OK
     ...    Check that the IUT responds with the information pertaining to one or more UEs in a particular location
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.3
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.3
     ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs013-location-api/blob/master/LocationAPI.yaml#/definitions/UserList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
@@ -33,7 +33,7 @@ TP_MEC_SRV_UEINFOLOOK_001_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.3
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.3
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -46,7 +46,7 @@ TP_MEC_SRV_UEINFOLOOK_001_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.3
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.3
     ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs013-location-api/blob/master/LocationAPI.yaml#/definitions/UserList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES

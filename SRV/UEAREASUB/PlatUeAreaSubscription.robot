@@ -18,7 +18,7 @@ TP_MEC_SRV_UEAREASUB_001_OK
     ...    Check that the IUT acknowledges the UE area change subscription request when
     ...    commanded by a MEC Application and notifies it when the UE enters the specified circle
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.11
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.11
     ...    OpenAPI    # TODO check this
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
@@ -49,7 +49,7 @@ TP_MEC_SRV_UEAREASUB_001_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.11
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.11
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -62,7 +62,7 @@ TP_MEC_SRV_UEAREASUB_002_OK
     ...    Check that the IUT acknowledges the cancellation of UE area change notifications
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.6
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.6
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -75,7 +75,7 @@ TP_MEC_SRV_UEAREASUB_002_NF
     ...    Check that the IUT responds with an error when
     ...    a request sent by a MEC Application doesn't comply with a required condition
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.6
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.6
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 

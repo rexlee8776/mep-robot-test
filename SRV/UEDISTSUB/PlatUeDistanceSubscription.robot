@@ -18,7 +18,7 @@ TP_MEC_SRV_UEDISTSUB_001_OK
     ...    Check that the IUT acknowledges the UE distance subscription request when commanded by a
     ...    MEC Application and notifies it when (all) the requested UE(s) is (are) within the specified distance
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.10
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.10
     ...    OpenAPI    # TODO check this
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
@@ -37,7 +37,7 @@ TP_MEC_SRV_UEDISTSUB_001_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.10
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.10
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -50,7 +50,7 @@ TP_MEC_SRV_UEDISTSUB_002_OK
     ...    Check that the IUT acknowledges the cancellation of UE distance notifications
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.6
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.6
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -63,7 +63,7 @@ TP_MEC_SRV_UEDISTSUB_002_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 013 V2.0.3, clause 7.3.6
+    ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.6
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
