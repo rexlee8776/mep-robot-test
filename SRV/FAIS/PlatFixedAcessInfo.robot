@@ -18,7 +18,7 @@ TP_MEC_SRV_FAIS_001_OK
     ...    Check that the IUT responds with the current status of the fixed access information
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.3.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.3.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -32,7 +32,7 @@ TP_MEC_SRV_FAIS_001_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.3.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.3.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -45,7 +45,7 @@ TP_MEC_SRV_FAIS_001_NF
     ...    Check that the IUT responds with an error when
     ...    a request for non-existing data is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.3.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.3.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -58,7 +58,7 @@ TP_MEC_SRV_FAIS_002_OK
     ...    Check that the IUT responds with the current status of the device information
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.4.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.4.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -72,7 +72,7 @@ TP_MEC_SRV_FAIS_002_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.4.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.4.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -80,16 +80,16 @@ TP_MEC_SRV_FAIS_002_BR
     Check HTTP Response Status Code Is    400
 
 
-TP_MEC_SRV_FAIS_001_NF
+TP_MEC_SRV_FAIS_002_NF
     [Documentation]
     ...    Check that the IUT responds with an error when
     ...    a request for non-existing data is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.4.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.4.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    vGET    /${PX_FAI_FA_INFO_URI}?gwId=${NON_EXISTING_FAI_GW_ID}
+    vGET    /${PX_FAI_DEVICE_INFO_URI}?gwId=${NON_EXISTING_FAI_GW_ID}
     Check HTTP Response Status Code Is    404
 
 
@@ -98,7 +98,7 @@ TP_MEC_SRV_FAIS_003_OK
     ...    Check that the IUT responds with the current status of the cable line information
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.5.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.5.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -112,7 +112,7 @@ TP_MEC_SRV_FAIS_003_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.5.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.5.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -125,7 +125,7 @@ TP_MEC_SRV_FAIS_003_NF
     ...    Check that the IUT responds with an error when
     ...    a request for non-existing data is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.5.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.5.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -138,7 +138,7 @@ TP_MEC_SRV_FAIS_004_OK
     ...    Check that the IUT responds with the current status of the optical network information
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.6.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.6.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -152,7 +152,7 @@ TP_MEC_SRV_FAIS_004_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.6.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.6.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -165,7 +165,7 @@ TP_MEC_SRV_FAIS_004_NF
     ...    Check that the IUT responds with an error when
     ...    a request for non-existing data is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.6.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.6.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -178,7 +178,7 @@ TP_MEC_SRV_FAIS_005_OK
     ...    Check that the IUT responds with the subscriptions for fixed access information notifications
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.7.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.7.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -192,7 +192,7 @@ TP_MEC_SRV_FAIS_005_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.7.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.7.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -205,7 +205,7 @@ TP_MEC_SRV_FAIS_005_NF
     ...    Check that the IUT responds with an error when
     ...    a request for non-existing data is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.7.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.7.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -218,7 +218,7 @@ TP_MEC_SRV_FAIS_006_OK
     ...    Check that the IUT acknowledges the subscription by a MEC Application
     ...    to notifications on Optical Network Unit alarm events
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.7.3.4
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.7.3.4
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -245,7 +245,7 @@ TP_MEC_SRV_FAIS_006_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.7.3.4
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.7.3.4
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -258,7 +258,7 @@ TP_MEC_SRV_FAIS_007_OK
     ...    Check that the IUT responds with the information on a given subscription
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -273,7 +273,7 @@ TP_MEC_SRV_FAIS_007_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.1
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -286,11 +286,11 @@ TP_MEC_SRV_FAIS_008_OK
     ...    Check that the IUT updates an existing subscription
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.2
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.2
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
-    vPUT    /${PX_FAI_SUB_URI}    ${FAI_ONU_ALARM_SUB_UPDT_DATA}
+    vPUT    /${PX_FAI_SUB_URI}/${SUBSCRIPTION_ID}    ${FAI_ONU_ALARM_SUB_UPDT_DATA}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    OnuAlarmSubscription
     Check Result Contains    ${response['body']['OnuAlarmSubscription']}    subscriptionType    "OnuAlarmSubscription"
@@ -301,7 +301,7 @@ TP_MEC_SRV_FAIS_008_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.2
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.2
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -314,7 +314,7 @@ TP_MEC_SRV_FAIS_008_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.2
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.2
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -327,7 +327,7 @@ TP_MEC_SRV_FAIS_008_PF
     ...    Check that the IUT responds with an error when
     ...    a request sent by a MEC Application doesn't comply with a required condition
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.2
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.2
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -340,7 +340,7 @@ TP_MEC_SRV_FAIS_009_OK
     ...    Check that the IUT cancels an existing subscription
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.5
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -353,7 +353,7 @@ TP_MEC_SRV_UEDISTSUB_002_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.8.3.5
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.8.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -366,14 +366,29 @@ TP_MEC_SRV_FAIS_010_OK
     ...    Check that the IUT sends notification on expiry of Fixed Access Information event subscription
     ...    to a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 7.7.3.4
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 7.7.3.4
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
+    # TODO how to set this? expiryDeadline indicating value NOW_PLUS_X_SECONDS    
     vPOST    /${PX_FAI_SUB_URI}    ${FAI_DEV_INFO_SUB_DATA}
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    DevInfoSubscription
+    Check HTTP Response Header Contains    Location
     Check Result Contains    ${response['body']['DevInfoSubscription']}    subscriptionType    DevInfoSubscription
+
+    # TODO: how to wait for a timeout of (NOW_PLUS_X_SECONDS - guard time)? which guard time value to use?
+    # and
+    # // MEC 029, clause 5.2.6.2
+    # the IUT entity sends a vPOST containing
+    # uri indicating value CALLBACK_URL
+    # body containing
+    # ExpiryNotification containing
+    # expiryDeadline indicating value NOW_PLUS_X_SECONDS    // TODO: how to set this?
+    # ;
+    # ;
+    # ;
+    # to the MEC_APP entity
 
 
 TP_MEC_SRV_FAIS_011_OK
@@ -381,7 +396,7 @@ TP_MEC_SRV_FAIS_011_OK
     ...    Check that the IUT sends notifications on Fixed Access Information events
     ...    to a subscribed MEC Application
     ...
-    ...    Reference    ETSI GS MEC 029 V2.0.7, clause 5.2.7
+    ...    Reference    ETSI GS MEC 029 V2.1.1, clause 5.2.7
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
 
@@ -413,4 +428,3 @@ TP_MEC_SRV_FAIS_011_OK
     # to the MEC_APP entity
     # }
     # }
-
