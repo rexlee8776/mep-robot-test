@@ -4,9 +4,4 @@ ${PROVIDER_SCHEMA}                   http
 ${PROVIDER_HOST}                     10.192.2.172
 ${PROVIDER_PORT}                     8081
 ${response}                         {}
-${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
-${apiRoot}        
-${apiName}        apmi
-${apiVersion}     v1
-
-${INVALID_TOKEN}                    INVALID_TOKEN
+${token}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
