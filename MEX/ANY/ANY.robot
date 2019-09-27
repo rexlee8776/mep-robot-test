@@ -21,8 +21,6 @@ Request access to all resources using no token
     : FOR    ${INDEX}    IN RANGE    0    3
     \    @{list}    Split String    ${data[${INDEX}]}    separator=|    max_split=-1
     \    Perform a generic request using no token    @{list[${INDEX}]}
-    : FOR    ${INDEX}    IN RANGE    0    3
-    \    @{list}    Split String    ${data[${INDEX}]}    separator=|    max_split=-1
     \    Perform a generic request using invalid token    @{data[${INDEX}]}
     
 
