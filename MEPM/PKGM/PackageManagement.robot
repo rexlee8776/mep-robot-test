@@ -178,7 +178,21 @@ Remove a APP Package subscription using non existant subscription id
     Check HTTP Response Status Code Is    404
 
 
-    
+Post Application Package Notification
+    [Documentation]   TP_MEC_MEPM_PKGM_009_OK
+    ...  Check that the MEPM service sends a application package notification 
+    ...  if the MEPM service has an associated subscription and the event is generated
+    ...  ETSI GS MEC 010-2 2.0.10, clause 7.4.7.3.1
+    ${json}=	Get File	schemas/AppPkgNotification.schema.json
+    Log  Creating mock request and response to handle  Application Package Notification
+    &{req}=  Create Mock Request Matcher	POST  ${callback_endpoint}  body_type="JSON_SCHEMA"    body=${json}
+    &{rsp}=  Create Mock Response	headers="Content-Type: application/json"  status_code=204
+    Create Mock Expectation  ${req}  ${rsp}
+    Wait Until Keyword Succeeds    ${total_polling_time}   ${polling_interval}   Verify Mock Expectation    ${req}
+    Log  Verifying results
+    Verify Mock Expectation  ${req}
+    Log  Cleaning the endpoint
+    Clear Requests  ${callback_endpoint}     
 
 *** Keywords ***
 GET all APP Packages

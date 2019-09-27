@@ -1,0 +1,6 @@
+{
+["https", "localhost", "8080", "/alcmi/v1/app_instances", "POST", "{}"],
+["https", "localhost", "8080", "/alcmi/v1/app_instances", "GET", ""],
+["https", "localhost", "8080", "/alcmi/v1/app_instances", "PUT", "{}"],
+["https", "localhost", "8080", "/alcmi/v1/app_instances", "DELETE", ""]
+}

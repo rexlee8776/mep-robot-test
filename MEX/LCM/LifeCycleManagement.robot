@@ -322,7 +322,23 @@ Remove a APP Package subscription using non existant subscription id
     Delete an LCM Subscription identified by    ${NON_EXISTENT_SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    404
 
-   
+Post Application Package Notification
+    [Documentation]   TP_MEC_MEX_LCM_014_OK
+    ...  Check that MEC API provider sends a notification to the subscriber when an application lcm change event occurs
+    ...  ETSI GS MEC 010-2 2.0.10, clause 7.5.5.3.1
+    ...  ETSI GS MEC 010-2 2.0.10, table 6.2.2.18.2-1, // AppLcmOpOccNotification
+    ...  ETSI GS MEC 010-2 2.0.10, table 6.2.2.12.2-1  // AppInstNotification 
+    ${json}=	Get File	schemas/LCMNotification.schema.json
+    Log  Creating mock request and response to handle  LCM Notification
+    &{req}=  Create Mock Request Matcher	POST  ${callback_endpoint}  body_type="JSON_SCHEMA"    body=${json}
+    &{rsp}=  Create Mock Response	headers="Content-Type: application/json"  status_code=204
+    Create Mock Expectation  ${req}  ${rsp}
+    Wait Until Keyword Succeeds    ${total_polling_time}   ${polling_interval}   Verify Mock Expectation    ${req}
+    Log  Verifying results
+    Verify Mock Expectation  ${req}
+    Log  Cleaning the endpoint
+    Clear Requests  ${callback_endpoint} 
+         
 
 *** Keywords ***
 Post Request to create new App instance
