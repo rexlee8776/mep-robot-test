@@ -1,0 +1,1275 @@
+components:
+  schemas:
+    AniAlarmNotification:
+      properties:
+        '  aniIndex':
+          description: The index of an access network interface supported by the optical
+            network unit.
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        '  onuId':
+          description: The unique identifiers for the optical network unit.
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        alarm:
+          description: 'Indicates the alarm of the ANI:
+
+            0 = LowReceivedOpticalPower.
+
+            1 = HighReceivedOpticalPower.
+
+            2 = SignalFailure.
+
+            3 = SignalDegrade.
+
+            4 = LowTransmitOpticalPower.
+
+            5 = HighTransmitOpticalPower.
+
+            6 = LaserBiasCurrent.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        aniId:
+          description: ''
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Structure (inlined)
+        customerPremisesInfo:
+          $ref: '#/components/schemas/CpInfo'
+          description: The physical location of the related customer sites.
+          x-etsi-mec-cardinality: 0..N
+          x-etsi-mec-origin-type: CpInfo
+        notificationType:
+          description: Shall be set to "AniAlarmNotification".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        onuId:
+          description: The unique identifier for an optical network unit.
+          type: string
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: String
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - notificationType
+      - '  onuId'
+      - '  aniIndex'
+      - alarm
+      type: object
+      x-etsi-ref: 6.4.6
+    AniAlarmSubscription:
+      properties:
+        '  aniIndex':
+          description: The index of an access network interface supported by the optical
+            network unit.
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        '  onuId':
+          description: The unique identifiers for the optical network unit,
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        _links:
+          description: Hyperlink related to the resource. This shall be only included
+            in the HTTP responses and in HTTP PUT requests.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Structure (inlined)
+        alarms:
+          description: "In case alarms is not included in the subscription request,\
+            \ the default value -1 = All shall be used and included in the response:\n\
+            0  =\tLowReceivedOpticalPower.\n(Received downstream optical power below\
+            \ threshold.)\n1  =\tHighReceivedOpticalPower.\n\t(Received downstream\
+            \ optical power above threshold.)\n2  =\tSignalFalure.\n(Bit error-based\
+            \ signal fail.)\n3  =\tSignalDegrade.\n(Bit error-based signal degrade.)\n\
+            4  =\tLowTransmitOpticalPower.\n(Transmit optical power below lower threshold.)\n\
+            5  =\tHighTransmitOpticalPower.\n(Transmit optical power above upper threshold.)\n\
+            6  =\tLaserBiasCurrent.\n(Laser bias current above threshold determined\
+            \ by vendor.)\n-1 =\tAll."
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: 0..N
+          x-etsi-mec-origin-type: Enum
+        callbackReference:
+          description: URI selected by the service consumer to receive notifications
+            on the subscribed FAIS information. This shall be included both in the
+            request and in response.
+          format: uri
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: URI
+        expiryDeadline:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        filterCriteriaAniAlarm:
+          description: List of filtering criteria for the subscription. Any filtering
+            criteria from below, which is included in the request, shall also be included
+            in the response.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Structure (inlined)
+        subscriptionType:
+          description: Shall be set to "AniAlarmSubscription".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+      required:
+      - subscriptionType
+      - callbackReference
+      - filterCriteriaAniAlarm
+      - '  onuId'
+      - '  aniIndex'
+      type: object
+      x-etsi-ref: 6.3.6
+    CableLineInfo:
+      properties:
+        cmInfo:
+          description: ''
+          properties:
+            cmDpvStats:
+              description: It represents the DOCSIS Path Verify Statistics collected
+                in the cable modem device.
+              properties: {}
+              type: object
+              x-etsi-mec-cardinality: 0..N
+              x-etsi-mec-origin-type: Structure (inlined)
+            cmId:
+              description: 'Information (typically the serial number) to identify
+                a Cable Modem at subscriber locations intended for use in conveying
+                data communications on a cable data system.
+
+
+                This value SHALL remain fixed over the lifetime of the
+
+                device, including across firmware updates.'
+              type: string
+              x-etsi-mec-cardinality: '1'
+              x-etsi-mec-origin-type: String
+            cmStatus:
+              description: It provides CM connectivity status information of the CM.
+              properties:
+                cmRegState:
+                  description: 'It defines the CM connectivity state. Enumeration
+                    of:
+
+                    1 = other.
+
+                    2 = notReady.
+
+                    3 = notSynchronized.
+
+                    4 = phySynchronized.
+
+                    5 = usParametersAcquired.
+
+                    6 = rangingComplete.
+
+                    7 = dhcpV4Complete.
+
+                    8 = todEstablished.
+
+                    9 = securityEstablished.
+
+                    10 = configFileDownloadComplete.
+
+                    11 = registrationComplete.
+
+                    12 = operational.
+
+                    13 = accessDenied.
+
+                    14 = eaeInProgress.
+
+                    15 = dhcpv4InProgress.
+
+                    16 = dhcpv6InProgress.
+
+                    17 = dhcpV6Complete.
+
+                    18 = registrationInProgress.
+
+                    19 = bpiInit.
+
+                    20 = forwardingDisabled.
+
+                    21 = dsTopologyResolutionInProgress.
+
+                    22 = rangingInProgress.
+
+                    23 = rfMuteAll.'
+                  enum:
+                  - SEE_DESCRIPTION
+                  type: string
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: Enum
+                energyMgt1x1OperStatus:
+                  description: It indicates whether the CM is currently operating
+                    in Energy Management 1x1 Mode.
+                  type: boolean
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: Boolean
+                ifIndex:
+                  description: It denotes the MAC Domain interface index of the CM.
+                  type: string
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: String
+                invalidRegRsps:
+                  description: It denotes the number of times the CM received invalid
+                    registration response messages.
+                  type: integer
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: Integer
+                lostSyncs:
+                  description: It denotes the number of times the CM lost synchronization
+                    with the downstream channel.
+                  type: integer
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: Integer
+                resets:
+                  description: It denotes the number of times the CM reset or initialized
+                    this interface.
+                  type: integer
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: Integer
+              required:
+              - ifIndex
+              - cmRegState
+              - resets
+              - lostSyncs
+              - invalidRegRsps
+              - energyMgt1x1OperStatus
+              type: object
+              x-etsi-mec-cardinality: 0..N
+              x-etsi-mec-origin-type: Structure (inlined)
+            serviceFlowStats:
+              description: It describes statistics associated with the Service Flows
+                in a managed device.
+              properties: {}
+              type: object
+              x-etsi-mec-cardinality: 0..N
+              x-etsi-mec-origin-type: Structure (inlined)
+          required:
+          - cmId
+          type: object
+          x-etsi-mec-cardinality: 1..N
+          x-etsi-mec-origin-type: Structure (inlined)
+        customerPremisesInfo:
+          $ref: '#/components/schemas/CpInfo'
+          description: The physical location of a customer site.
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: CpInfo
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - customerPremisesInfo
+      - cmInfo
+      type: object
+      x-etsi-ref: 6.2.4
+    CmConnNotification:
+      properties:
+        cmIf:
+          description: ''
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: 1..N
+          x-etsi-mec-origin-type: Structure (inlined)
+        customerPremisesInfo:
+          $ref: '#/components/schemas/CpInfo'
+          description: The physical location of a customer site.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: CpInfo
+        notificationType:
+          description: Shall be set to "CmconnNotification".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - notificationType
+      - cmIf
+      type: object
+      x-etsi-ref: 6.4.4
+    CmConnSubscription:
+      properties:
+        _links:
+          description: Hyperlink related to the resource. This shall be only included
+            in the HTTP responses and in HTTP PUT requests.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Structure (inlined)
+        callbackReference:
+          description: URI selected by the service consumer to receive notifications
+            on the subscribed FAIS information. This shall be included both in the
+            request and in response.
+          format: uri
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: URI
+        expiryDeadline:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        filterCriteriaCmConn:
+          description: List of filtering criteria for the subscription. Any filtering
+            criteria from below, which is included in the request, shall also be included
+            in the response.
+          properties:
+            customerPremisesInfo:
+              $ref: '#/components/schemas/CpInfo'
+              description: The physical location of a customer site.
+              x-etsi-mec-cardinality: 0..1
+              x-etsi-mec-origin-type: CpInfo
+          type: object
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Structure (inlined)
+        subscriptionType:
+          description: Shall be set to "CmConnSubscription".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+      required:
+      - subscriptionType
+      - callbackReference
+      - filterCriteriaCmConn
+      type: object
+      x-etsi-notes: "'notReady' indicates that the CM has not started the registration\
+        \ process yet.\n\t'notSynchronized' indicates that the CM has not initiated\
+        \ or completed the synchronization of the downstream physical layer.\n\t'phySynchronized'\
+        \ indicates that the CM has completed the synchronization of the downstream\
+        \ physical layer.\n\t'dsTopologyResolutionInProgress' indicates that the CM\
+        \ is attempting to determine its MD-DS-SG.\n\t'usParametersAcquired' indicates\
+        \ that the CM has completed the upstream parameters acquisition or have completed\
+        \ the downstream and upstream service groups resolution.\n\t'rangingInProgress'\
+        \ indicates that the CM has initiated the initial ranging process.\n\t'rangingComplete'\
+        \ indicates that the CM has completed initial ranging and received a Ranging\
+        \ Status of success from the CMTS in the RNG-RSP message.\n\t'eaeInProgress'\
+        \ indicates that the CM has sent an Auth Info message for EAE.\n\t'dhcpv4InProgress'\
+        \ indicates that the CM has sent a DHCPv4 DISCOVER to gain IP connectivity.\n\
+        \t'dhcpv6InProgress' indicates that the CM has sent a DHCPv6 Solicit message.\n\
+        \t'dhcpv4Complete' indicates that the CM has received a DHCPv4 ACK message\
+        \ from the CMTS.\n\t'dhcpv6Complete' indicates that the CM has received a\
+        \ DHCPv6 Reply message from the CMTS.\n\t'todEstablished' indicates that the\
+        \ CM has successfully acquired time of day.\n\t'securityEstablished' indicates\
+        \ that the CM has successfully completed the BPI initialization process.\n\
+        \t'configFileDownloadComplete' indicates that the CM has completed the config\
+        \ file download process.\n\t'registrationInProgress' indicates that the CM\
+        \ has sent a Registration Request.\n\t'registrationComplete' indicates that\
+        \ the CM has successfully completed the Registration process with the CMTS.\n\
+        \t'accessDenied' indicates that the CM has received a registration aborted\
+        \ notification from the CMTS.\n\t'operational' indicates that the CM has completed\
+        \ all necessary initialization steps and is operational.\n\t'bpiInit' indicates\
+        \ that the CM has started the BPI initialization process as indicated in the\
+        \ CM config file.\n\t'forwardingDisabled' indicates that the registration\
+        \ process was completed, but the network access option in the received configuration\
+        \ file prohibits forwarding."
+      x-etsi-ref: 6.3.4
+    CpInfo:
+      properties:
+        latitude:
+          description: 'Latitude (DATUM=WGS84)
+
+            -90 to 90 in decimal degree format DDD.ddd'
+          type: number
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Float
+        longitude:
+          description: 'Longitude (DATUM=WGS84)
+
+            -180 to 180 in decimal degree format DDD.ddd'
+          type: number
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Float
+        postalCode:
+          description: Postal code for the location
+          type: string
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: String
+      type: object
+      x-etsi-ref: 6.5.3
+    DevInfoNotification:
+      properties:
+        deviceErrStatus:
+          description: 'Indicates the abnormal operational status of the device. Enumeration
+            of:
+
+            1 = Error.
+
+            2 = Disabled.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        deviceId:
+          description: The identifier for a device.
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        notificationType:
+          description: Shall be set to "DevInfoNotification".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - notificationType
+      - deviceId
+      - deviceErrStatus
+      type: object
+      x-etsi-ref: 6.4.3
+    DevInfoSubscription:
+      properties:
+        _links:
+          description: Hyperlink related to the resource. This shall be only included
+            in the HTTP responses and in HTTP PUT requests.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Structure (inlined)
+        callbackReference:
+          description: URI selected by the service consumer to receive notifications
+            on the subscribed FAIS information. This shall be included both in the
+            request and in response.
+          format: uri
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: URI
+        expiryDeadline:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        filterCriteriaDevInfo:
+          description: List of filtering criteria for the subscription. Any filtering
+            criteria from below, which is included in the request, shall also be included
+            in the response.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Structure (inlined)
+        subscriptionType:
+          description: Shall be set to "DevInfoSubscription".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+      required:
+      - subscriptionType
+      - callbackReference
+      - filterCriteriaDevInfo
+      type: object
+      x-etsi-ref: 6.3.3
+    DeviceInfo:
+      properties:
+        deviceId:
+          description: 'Typically, the serial number of the device.
+
+
+            This value shall remain fixed over the lifetime of the device, including
+            across firmware updates.'
+          type: string
+          x-etsi-mec-cardinality: 0..N
+          x-etsi-mec-origin-type: String
+        deviceStatus:
+          description: 'Current operational status of the device. Enumeration of:
+
+            1 = Up.
+
+            2 = Initializing.
+
+            3 = Error.
+
+            4 = Disabled.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        downloadDiagnostics:
+          $ref: '#/components/schemas/DownloadDiagnostics'
+          description: The result of a HTTP and FTP DownloadDiagnostics Test.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: DownloadDiagnostics
+        gwId:
+          description: 'Information (typically the serial number) to identify an Internet
+            Gateway Device through which
+
+            the customer premises device is connected.
+
+
+            This value shall remain fixed over the lifetime of the device, including
+            across firmware updates.'
+          type: string
+          x-etsi-mec-cardinality: 1..N
+          x-etsi-mec-origin-type: String
+        iPConnectionUpTime:
+          description: The time in seconds that the IP interface has been connected.
+          type: integer
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Integer
+        iPPingDiagnostics:
+          $ref: '#/components/schemas/IPPingDiagnostics'
+          description: The result of an IP-layer ping test.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: IPPingDiagnostics
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        totalBytesReceived:
+          description: Total number of IP payload bytes received since the device
+            was last restarted.
+          type: integer
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Integer
+        totalBytesSent:
+          description: Total number of IP payload bytes sent since the device was
+            last restarted.
+          type: integer
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Integer
+        totalPacketsReceived:
+          description: Total number of packets received since the device was last
+            restarted.
+          type: integer
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Integer
+        totalPacketsSent:
+          description: Total number of packets sent since the device was last restarted.
+          type: integer
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Integer
+        traceRouteDiagnostics:
+          $ref: '#/components/schemas/TraceRouteDiagnostics'
+          description: The result of an IP-layer trace-route test.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TraceRouteDiagnostics
+        upTime:
+          description: Time in seconds since the device was last restarted.
+          type: integer
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Integer
+        uploadDiagnostics:
+          $ref: '#/components/schemas/UploadDiagnostics'
+          description: The result of a HTTP and FTP UploadDiagnostics Test.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: UploadDiagnostics
+      required:
+      - gwId
+      - deviceStatus
+      - upTime
+      - iPConnectionUpTime
+      - totalBytesSent
+      - totalBytesReceived
+      - totalPacketsSent
+      - totalPacketsReceived
+      type: object
+      x-etsi-ref: 6.2.3
+    DownloadDiagnostics:
+      properties:
+        bOMTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Begin of transmission time in UTC, which shall be specified
+            to microsecond precision.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        diagnosticsState:
+          description: 'The state of the HTTP and FTP download test. Enumeration of:
+
+            1 = None.
+
+            2 = Requested.
+
+            3 = Completed.
+
+            4 = Error_InitConnectionFailed.
+
+            5 = Error_NoResponse.
+
+            6 = Error_TransferFailed.
+
+            7 = Error_PasswordRequestFailed.
+
+            8 = Error_LoginFailed.
+
+            9 = Error_NoTransferMode.
+
+            10 = Error_NoPASV.
+
+            11 = Error_IncorrectSize.
+
+            12 = Error_Timeout.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        downloadURI:
+          description: The URI for the device to perform the download on.
+          format: uri
+          type: string
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: URI
+        eOMTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: End of transmission in UTC, which shall be specified to microsecond
+            precision.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        rOMTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Request time in UTC, which shall be specified to microsecond
+            precision.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        tCPOpenReponseTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Response time in UTC, which shall be specified to microsecond
+            precision.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        tCPOpenRequestTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Request time in UTC, which shall be specified to microsecond
+            precision.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        testBytesReceived:
+          description: The test traffic received in bytes during the FTP/HTTP transaction
+            including FTP/HTTP headers, between bOMTime and eOMTime.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        totalBytesReceived:
+          description: The total number of bytes received on the Interface between
+            bOMTime and eOMTime.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+      required:
+      - diagnosticsState
+      type: object
+      x-etsi-ref: 6.5.6
+    ExpiryNotification:
+      properties:
+        _links:
+          description: List of hyperlinks related to the resource.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Structure (inlined)
+        expiryDeadline:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: TimeStamp
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - _links
+      - expiryDeadline
+      type: object
+      x-etsi-ref: 6.4.5
+    FaInfo:
+      properties:
+        connectivityInfo:
+          description: The per connectivity domain FAI as defined below.
+          properties:
+            dsbw:
+              description: The bandwidth (in Mbps) from the network towards the customer
+                site.
+              type: integer
+              x-etsi-mec-cardinality: 0..1
+              x-etsi-mec-origin-type: Integer
+            interfaceType:
+              description: 'The physical interface used for the end customer site:
+
+                1   =   100BASE-TX.
+
+                2   =   1000BASE-TX.
+
+                3   =   1000BASE-LX.
+
+                4   =   1000BASELX10.
+
+                5   =   1000BASEBX10.
+
+                6   =   1000BASE-LH.
+
+                7   =   1000Base-ZX.
+
+                8   =   ADSL-RJ11.
+
+                9   =   VDSL-RJ11.
+
+                10 =   GPON.'
+              enum:
+              - SEE_DESCRIPTION
+              type: string
+              x-etsi-mec-cardinality: '1'
+              x-etsi-mec-origin-type: Enum
+            lastMileTech:
+              description: 'An informative field identifying the last mile access
+                technology used.
+
+                The valid values are:
+
+                1 = ADSL.
+
+                2 = VDSL.
+
+                3 = GPON.
+
+                4 = XGPON.
+
+                5 = NGPON2.
+
+                6 = XGSPON.
+
+                7 = GFAST.
+
+                8 = P2PEthernet.'
+              enum:
+              - SEE_DESCRIPTION
+              type: string
+              x-etsi-mec-cardinality: '1'
+              x-etsi-mec-origin-type: Enum
+          required:
+          - lastMileTech
+          - interfaceType
+          type: object
+          x-etsi-mec-cardinality: 0..N
+          x-etsi-mec-origin-type: Structure (inlined)
+        customerPremisesInfo:
+          $ref: '#/components/schemas/CpInfo'
+          description: The physical location of a customer site.
+          x-etsi-mec-cardinality: 1..N
+          x-etsi-mec-origin-type: CpInfo
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - customerPremisesInfo
+      type: object
+      x-etsi-ref: 6.2.2
+    IPPingDiagnostics:
+      properties:
+        averageResponseTime:
+          description: 'Result parameter indicating the average response time in milliseconds
+            over all repetitions with successful responses of the most recent ping
+            test.
+
+
+            If there were no successful responses, this value shall be zero.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        dataBlockSize:
+          description: Size of the data block in bytes to be sent for each ping.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        diagnosticsState:
+          description: 'The state of the IP ping test. Enumeration of:
+
+            1 = None.
+
+            2 = Requested.
+
+            3 = Complete.
+
+            4 = Error_CannotResolveHostName.
+
+            5 = Error_Internal.
+
+            6 = Error_Other.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        failureCount:
+          description: Result parameter indicating the number of failed pings in the
+            most recent ping test.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        host:
+          description: Host name or address of the host to ping.
+          type: string
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: String
+        maximumResponseTime:
+          description: 'Result parameter indicating the maximum response time in milliseconds
+            over all repetitions with successful responses of the most recent ping
+            test.
+
+
+            If there were no successful responses, this value shall be zero.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        minimumResponseTime:
+          description: 'Result parameter indicating the minimum response time in milliseconds
+            over all repetitions with successful responses of the most recent ping
+            test.
+
+
+            If there were no successful responses, this value shall be zero.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        numberOfRepetitions:
+          description: Number of repetitions of the ping test to perform before reporting
+            the results.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        successCount:
+          description: 'Result parameter indicating the number of successful
+
+            pings (those in which a successful response was received prior to the
+            timeout) in the most recent ping test.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        timeout:
+          description: Timeout in milliseconds for the ping test.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+      required:
+      - diagnosticsState
+      type: object
+      x-etsi-ref: 6.5.4
+    LocalityTypes:
+      type: string
+    OnuAlarmNotification:
+      properties:
+        alarm:
+          description: 'Indicates the alarm of the ONU:
+
+            0  = EquipmentAlarm.
+
+            1  = PoweringAlarm.
+
+            2  = BatteryMissing.
+
+            3  = BatteryFailure.
+
+            4  = BatteryLow.
+
+            5  = PhysicalIntrusion.
+
+            6  = OnuSelfTestFailure.
+
+            7  = DyingGasp.
+
+            8  = TemperatureYellow.
+
+            9  = TemperatureRed.
+
+            10 = VoltageYellow.
+
+            11 = VoltageRed.
+
+            12 = OnuManualPowerOff.
+
+            13 = InvImage.
+
+            14 = PseOverloadYellow.
+
+            15 = PseOverloadRed.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        customerPremisesInfo:
+          $ref: '#/components/schemas/CpInfo'
+          description: The physical location of the related customer sites.
+          x-etsi-mec-cardinality: 0..N
+          x-etsi-mec-origin-type: CpInfo
+        notificationType:
+          description: Shall be set to "OnuAlarmNotification".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        onuId:
+          description: The unique identifier for an optical network unit.
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - notificationType
+      - onuId
+      - alarm
+      type: object
+      x-etsi-ref: 6.4.2
+    OnuAlarmSubscription:
+      properties:
+        _links:
+          description: Hyperlink related to the resource. This shall be only included
+            in the HTTP responses and in HTTP PUT requests.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Structure (inlined)
+        callbackReference:
+          description: URI selected by the service consumer to receive notifications
+            on the subscribed FAIS information. This shall be included both in the
+            request and in response.
+          format: uri
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: URI
+        expiryDeadline:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        filterCriteriaOnuAlarm:
+          description: List of filtering criteria for the subscription. Any filtering
+            criteria from below, which is included in the request, shall also be included
+            in the response.
+          properties: {}
+          type: object
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Structure (inlined)
+        subscriptionType:
+          description: Shall be set to "OnuAlarmSubscription".
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+      required:
+      - subscriptionType
+      - callbackReference
+      - filterCriteriaOnuAlarm
+      type: object
+      x-etsi-ref: 6.3.2
+    PonInfo:
+      properties:
+        customerPremisesInfo:
+          $ref: '#/components/schemas/CpInfo'
+          description: The physical location of a customer site.
+          x-etsi-mec-cardinality: 1..N
+          x-etsi-mec-origin-type: CpInfo
+        opticalNetworkInfo:
+          description: ''
+          properties:
+            onuId:
+              description: Information to identify an Optical Network Unit.
+              type: string
+              x-etsi-mec-cardinality: '1'
+              x-etsi-mec-origin-type: String
+            ponTech:
+              description: 'An informative field identifying the optical technology
+                used.
+
+
+                The valid values are:
+
+                1 = GPON.
+
+                2 = XGPON.
+
+                3 = NGPON2.
+
+                4 = XGSPON.'
+              enum:
+              - SEE_DESCRIPTION
+              type: string
+              x-etsi-mec-cardinality: '1'
+              x-etsi-mec-origin-type: Enum
+          required:
+          - onuId
+          - ponTech
+          type: object
+          x-etsi-mec-cardinality: 1..N
+          x-etsi-mec-origin-type: Structure (inlined)
+        ponSYS_ID:
+          description: 'The 20-bit identity of the optical system within a certain
+            domain.
+
+            This is a reference value set by the OSS.'
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: String
+        timeStamp:
+          $ref: '#/components/schemas/TimeStamp'
+          description: Time stamp.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+      required:
+      - customerPremisesInfo
+      - ponSYS_ID
+      - opticalNetworkInfo
+      type: object
+      x-etsi-ref: 6.2.5
+    SerializerTypes:
+      type: string
+    SubscriptionLinkList:
+      properties:
+        _links:
+          description: List of hyperlinks related to the resource.
+          properties:
+            subscription:
+              description: A link to a subscription.
+              properties:
+                href:
+                  description: The URI referring to the subscription.
+                  format: uri
+                  type: string
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: URI
+                subscriptionType:
+                  description: 'Numeric value (0 - 255) corresponding to specified
+                    type of subscription as following:
+
+                    0 = RESERVED.
+
+                    1 = ONU_ALARM.
+
+                    2 = DEVICE_ABNORMAL_ALERT.
+
+                    3 = CM_CONNECTIVITY_STATE.
+
+                    4 = ANI_ALARM.'
+                  enum:
+                  - SEE_DESCRIPTION
+                  type: string
+                  x-etsi-mec-cardinality: '1'
+                  x-etsi-mec-origin-type: Enum
+              required:
+              - href
+              - subscriptionType
+              type: object
+              x-etsi-mec-cardinality: 0..N
+              x-etsi-mec-origin-type: Structure (inlined)
+          type: object
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Structure (inlined)
+      required:
+      - _links
+      type: object
+      x-etsi-ref: 6.3.5
+    TimeStamp:
+      properties:
+        nanoSeconds:
+          $ref: '#/components/schemas/Uint32'
+          description: The nanoseconds part of the time. Time is defined as Unix-time
+            since January 1, 1970, 00:00:00 UTC.
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Uint32
+        seconds:
+          $ref: '#/components/schemas/Uint32'
+          description: The seconds part of the time. Time is defined as Unixtime since
+            January 1, 1970, 00:00:00 UTC.
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Uint32
+      required:
+      - seconds
+      - nanoSeconds
+      type: object
+      x-etsi-ref: 6.5.2
+    TraceRouteDiagnostics:
+      properties:
+        dataBlockSize:
+          description: Size of the data block in bytes to be sent for each trace route.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        diagnosticsState:
+          description: 'The state of the IP trace-route test. Enumeration of:
+
+            1 = None.
+
+            2 = Requested.
+
+            3 = Complete.
+
+            4 = Error_CannotResolveHostName.
+
+            5 = Error_MaxHopCountExceeded.
+
+            6 = Error_Internal.
+
+            7 = Error_Other.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        host:
+          description: Host name or address of the host to find a route to.
+          type: string
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: String
+        maxHopCount:
+          description: The maximum number of hop used in outgoing probe packets. The
+            default is 30 hops.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        numberOfRouteHops:
+          description: 'Result parameter indicating the number of hops within the
+            discovered route.
+
+
+            If a route could not be determined, this value shall be zero.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        responseTime:
+          description: 'Result parameter indicating the response time in milliseconds
+            the most recent trace route test.
+
+
+            If a route could not be determined, this value shall be zero.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        timeout:
+          description: Timeout in milliseconds for the trace route test.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+      required:
+      - diagnosticsState
+      type: object
+      x-etsi-ref: 6.5.5
+    TransportTypes:
+      type: string
+    Uint32:
+      type: number
+    UnsignedInt:
+      type: number
+    UploadDiagnostics:
+      properties:
+        bOMTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: 'Begin of transmission time in UTC, which shall be
+
+            specified to microsecond precision.'
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        diagnosticsState:
+          description: 'The state of the HTTP and FTP download test. Enumeration of:
+
+            1 = None.
+
+            2 = Requested.
+
+            3 = Completed.
+
+            4 = Error_InitConnectionFailed.
+
+            5 = Error_NoResponse.
+
+            6 = Error_PasswordRequestFailed.
+
+            7 = Error_LoginFailed.
+
+            8 = Error_NoTransferMode.
+
+            9 = Error_NoPASV.
+
+            10 = Error_NoCWD.
+
+            11 = Error_NoSTOR.
+
+            12 = Error_NoTransferComplete.'
+          enum:
+          - SEE_DESCRIPTION
+          type: string
+          x-etsi-mec-cardinality: '1'
+          x-etsi-mec-origin-type: Enum
+        eOMTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: End of transmission in UTC, which shall be specified to microsecond
+            precision.
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        rOMTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: 'Request time in UTC, which shall be specified to
+
+            microsecond precision.'
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        tCPOpenReponseTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: 'Response time in UTC, which shall be specified to
+
+            microsecond precision.'
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        tCPOpenRequestTime:
+          $ref: '#/components/schemas/TimeStamp'
+          description: 'Request time in UTC, which shall be specified to
+
+            microsecond precision.'
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: TimeStamp
+        testBytesSent:
+          description: The test traffic sent in bytes during the FTP/HTTP transaction
+            including FTP/HTTP headers, between bOMTime and eOMTime.
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        testFileLength:
+          description: 'The size of the file (in bytes) to be uploaded to the
+
+            server.'
+          type: integer
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: Integer
+        uploadURI:
+          description: The URI for the device to perform the upload to.
+          format: uri
+          type: string
+          x-etsi-mec-cardinality: 0..1
+          x-etsi-mec-origin-type: URI
+      required:
+      - diagnosticsState
+      type: object
+      x-etsi-ref: 6.5.7
