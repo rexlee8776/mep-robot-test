@@ -23,15 +23,15 @@ if [ "${ERRORS}" -eq 0 ]; then
 fi
 
 
-if [ ! -z logs/errors.log ]; then
+if [ -f logs/errors.log ]; then
 	cat logs/errors.log
 fi
 
-if [ ! -z logs/failures.log ]; then
+if [ -f logs/failures.log ]; then
 	cat logs/failures.log
 fi
 
-if [ ! -z logs/erros.log ] || [ ! -z logs.failures.log ]; then
+if [ -f logs/erros.log ] || [ -f logs.failures.log ]; then
 	echo "Errors are found. Job failed"
 	exit 1
 fi

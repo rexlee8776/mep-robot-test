@@ -13,7 +13,7 @@ ARG ssh_prv_key
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt update \
-	&& apt install python3 -y \
+	&& apt install python3  git -y \
 	&& apt install python3-pip -y \
         && apt install openssh-server -y \
     && DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -y \
@@ -42,7 +42,11 @@ RUN pip3 install robotframework
 RUN DEBIAN_FRONTEND=noninteractive \
 	&& cd /home/etsi/dev/robot \
 	&& pip3 install -r requirements.txt \
-	&& chmod +x /home/etsi/dev/robot/scripts/*
+	&& chmod +x /home/etsi/dev/robot/scripts/* \
+	&& git clone https://github.com/etsi-cti-admin/robotframework-mockserver \
+	&& cd  robotframework-mockserver \
+	&& patch -p1 < ../extensions/mockserverlibrary.patch \
+	&& python3 -m pip install -e .
 
 CMD tail -f /dev/null
 
