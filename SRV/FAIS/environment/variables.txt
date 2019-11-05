@@ -1,0 +1,34 @@
+*** Variables ***
+# Generic variables
+${SCHEMA}                   http
+${HOST}                     10.192.2.172
+${PORT}                     8081
+${response}                         {}
+${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
+${apiRoot}        
+${apiName}        fai
+${apiVersion}     v1
+
+# Specific variables
+${INTERFACE_ID}                    1
+${NON_EXISTENT_INTERFACE_ID}       999
+${DEVICE_ID}                       5abe4782-2c70-4e47-9a4e-0ee3a1a0fd1f
+${NON_EXISTENT_DEVICE_ID}          NON_EXISTENT_DEVICE_ID
+${CABLE_MODEM_ID}                  e0deee2b-6e50-4f33-ab09-8bf0585025d3
+${NON_EXISTING_FAI_CM_ID}          NON_EXISTING_FAI_CM_ID
+${ONU_ID}                          d7873fb9-249c-4e31-a3f1-00bf22740371
+${NON_EXISTING_FAI_ONU_ID}         NON_EXISTING_FAI_ONU_ID
+${SUBSCRIPTION_TYPE}               DEVICE_ABNORMAL_ALERT
+${NON_EXISTENT_SUBSCRIPTION_TYPE}  NON_EXISTENT_SUBSCRIPTION_TYPE
+${ONU_ALARM_SUBSCRIPTION_ID}       6cd12d29-30c7-4c8c-bf51-846daa51bab0
+${NON_ESISTENT_SUBSCRIPTION_ID}    NON_ESISTENT_SUBSCRIPTION_ID
+${INVALID_ETAG}                     INVALID_ETAG
+
+
+
+${callback_port}    9091
+${callback_uri}    http://172.22.1.7:${callback_port}
+${callback_endpoint}    /fai/subscriptions
+${callback_endpoint_error}    /subs_404
+${total_polling_time}   2 min
+${polling_interval}     10 sec

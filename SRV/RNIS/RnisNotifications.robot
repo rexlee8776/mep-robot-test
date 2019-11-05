@@ -157,7 +157,7 @@ S1-U bearer notification
     Clear Requests    ${callback_endpoint}
 
 
-UE Measurement notification
+TC_MEC_SRV_RNIS_009_OK
     [Documentation]   TC_MEC_SRV_RNIS_009_OK
     ...  Check that the RNIS service sends an RNIS notification about 5G NR UE measurement report if the RNIS service has an associated subscription and the event is generated
     ...  ETSI GS MEC 012 2.0.4, clause 6.4.11
@@ -175,7 +175,7 @@ UE Measurement notification
     Clear Requests    ${callback_endpoint}
 
 
-UE Measurement notification
+TC_MEC_SRV_RNIS_010_OK
     [Documentation]   TC_MEC_SRV_RNIS_010_OK
     ...  Check that the RNIS service sends an RNIS notification on subscription expiration if the RNIS service has an associated subscription and the event is generated
     ...  ETSI GS MEC 012 2.0.4, clause 6.4.9

@@ -1,3 +1,4 @@
+*** Variables ***
 
 MEC_SERVER_SCHEMA       = "http"
 MEC_SERVER_HOST         = "localhost"

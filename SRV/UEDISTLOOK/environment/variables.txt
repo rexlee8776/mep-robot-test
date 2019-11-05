@@ -1,0 +1,15 @@
+*** Variables ***
+# Generic variables
+${SCHEMA}                   http
+${HOST}                     10.192.2.172
+${PORT}                     8081
+${response}                         {}
+${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
+${apiRoot}        
+${apiName}        location
+${apiVersion}     v2
+
+# Specific variables
+${LOC_QRY_UE_ADDRESS}        acr:10.0.0.1
+${LOC_QRY_UE_LAT}            -80.86302
+${LOC_QRY_UE_LONG}           41.277306

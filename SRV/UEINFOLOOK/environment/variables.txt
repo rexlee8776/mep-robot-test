@@ -1,0 +1,14 @@
+*** Variables ***
+# Generic variables
+${SCHEMA}                   http
+${HOST}                     10.192.2.172
+${PORT}                     8081
+${response}                         {}
+${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
+${apiRoot}        
+${apiName}        location
+${apiVersion}     v2
+
+# Specific variables
+${ACR_ADDRESS}               acr:10.0.0.3
+${ACR_UNKNOWN_IP}            acr:192.168.5.1.1

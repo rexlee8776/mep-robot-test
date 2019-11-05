@@ -6,6 +6,7 @@ Resource    environment/variables.txt
 Resource    ../../pics.txt
 Resource    ../../GenericKeywords.robot
 Resource    resources/UeAppsContextAPI.robot
+Library     String
 Library     REST    ${MEC-APP_SCHEMA}://${MEC-APP_HOST}:${MEC-APP_PORT}    ssl_verify=false
 
 
@@ -43,7 +44,7 @@ Update of the application context
     Should Be True    ${PIC_SERVICES} == 1
     Create an application context
     # Test Body
-    ${CREATE_APP_CTX['callbackReference']}=    ${CALLBACK_REFERENCE_1}
+    ${CREATE_APP_CTX}=    Set Variable  ${CALLBACK_REFERENCE_1}
     Update application context    ${APP_CTX_ID}    ${CREATE_APP_CTX}
     Check HTTP Response Status Code Is    204
     Check HTTP Response Body Json Schema Is   AppContext
@@ -62,7 +63,7 @@ Update of the application context with wrong parameters
     Should Be True    ${PIC_SERVICES} == 1
     Create an application context
     # Test Body
-    ${CREATE_APP_CTX['callbackReference']}=    '' # Empty string
+    ${CREATE_APP_CTX}=     Set Variable  '' # Empty string
     Update application context    ${APP_CTX_ID}    ${CREATE_APP_CTX}
     Check HTTP Response Status Code Is    400
     Check ProblemDetails    400
@@ -80,7 +81,7 @@ Update of the application context with unknown URI
     Should Be True    ${PIC_SERVICES} == 1
     Create an application context
     # Test Body
-    ${CREATE_APP_CTX['callbackReference']}=    ${CALLBACK_REFERENCE_1}
+    ${CREATE_APP_CTX}=    Set Variable    ${CALLBACK_REFERENCE_1}
     Update application context    ${NON_EXISTENT_APP_CTX_ID}    ${CREATE_APP_CTX}
     Check HTTP Response Status Code Is    404
     Check ProblemDetails    404
@@ -102,7 +103,7 @@ Delete of the application context
     Check HTTP Response Status Code Is    204
 
 
-Delete of the application context
+Delete of the application context with non esistent APP CTX ID
     [Documentation]   TC_MEC_MEO_UEAPPCTX_003_NF
     ...  Check that the IUT responds with an error when a request for an unknown URI is sent by a MEC Application
     ...  Reference ETSI GS MEC 016 V1.1.1, clause 7.5.3.5

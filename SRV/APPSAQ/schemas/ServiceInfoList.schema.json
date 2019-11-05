@@ -1,0 +1,49 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "serInstanceId",
+      "version",
+      "state",
+      "transportInfo",
+      "serializer"
+    ],
+    "properties": {
+      "serInstanceId": {
+        "type": "string"
+      },
+      "serName": {
+        "type": "string"
+      },
+      "serCategory": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "ACTIVE",
+          "INACTIVE"
+        ]
+      },
+      "transportInfo": {
+        "type": "string"
+      },
+      "serializer": {
+        "type": "string"
+      },
+      "scopeOfLocality": {
+        "type": "string"
+      },
+      "consumedLocalOnly": {
+        "type": "string"
+      },
+      "isLocal": {
+        "type": "string"
+      }
+    }
+  }
+}

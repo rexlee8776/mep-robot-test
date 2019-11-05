@@ -1,0 +1,12 @@
+{
+	"periodicNotificationSubscription": {
+		"address": "acr:10.0.0.1",
+		"callbackReference": {
+			"callbackData": "0123",
+			"notifyURL": "http://clientApp.example.com/location_notifications/123456"
+		},
+		"client": "0123",
+		"frequency": "10",
+		"requestedAccuracy": "10"
+	}
+}

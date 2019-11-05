@@ -4,16 +4,16 @@ Documentation
 ...    A test suite for validating Application Subscriptions (APPSUB) operations.
 
 Resource    ../../GenericKeywords.robot
+Resource    environment/variables.txt
+Library     REST    ${SCHEMA}://${HOST}:${PORT}    ssl_verify=false
+Library     OperatingSystem    
 
-Default Tags    TP_MEC_SRV_APPSUB
-
-
-*** Variables ***
+Default Tags    TC_MEC_SRV_APPSUB
 
 
 *** Test Cases ***
 
-TP_MEC_SRV_APPSUB_001_OK
+TC_MEC_SRV_APPSUB_001_OK
     [Documentation]
     ...    Check that the IUT responds with a list of subscriptions for notifications
     ...    on services availability when queried by a MEC Application
@@ -22,13 +22,12 @@ TP_MEC_SRV_APPSUB_001_OK
     ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/MecAppSuptApiSubscriptionLinkList
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vGET    /${PX_ME_APP_SUPPORT_URI}/${APP_INSTANCE_ID}/subscriptions
+    Get Subscriptions list    ${APP_INSTANCE_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    SubscriptionLinkList
 
 
-TP_MEC_SRV_APPSUB_001_NF
+TC_MEC_SRV_APPSUB_001_NF
     [Documentation]
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
@@ -36,12 +35,11 @@ TP_MEC_SRV_APPSUB_001_NF
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.3.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vGET    /${PX_ME_APP_SUPPORT_URI}/${NON_EXISTENT_APP_INSTANCE_ID}/subscriptions
+    Get Subscriptions list    ${NON_EXISTENT_APP_INSTANCE_ID}
     Check HTTP Response Status Code Is    404
 
 
-TP_MEC_SRV_APPSUB_002_OK
+TC_MEC_SRV_APPSUB_002_OK
     [Documentation]
     ...    Check that the IUT acknowledges the subscription by a MEC Application
     ...    to notifications on service availability events
@@ -50,8 +48,7 @@ TP_MEC_SRV_APPSUB_002_OK
     ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/AppTerminationNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vPOST    /${PX_ME_APP_SUPPORT_URI}/${APP_INSTANCE_ID}/subscriptions    ${APP_TERM_NOTIF_SUB}
+    Create new subscription    ${APP_INSTANCE_ID}    AppTerminationNotificationSubscription
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    AppTerminationNotificationSubscription
     Check HTTP Response Header Contains    Location
@@ -59,7 +56,7 @@ TP_MEC_SRV_APPSUB_002_OK
     Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    callbackReference    ${APP_TERM_NOTIF_CALLBACK_URI}
 
 
-TP_MEC_SRV_APPSUB_003_OK
+TC_MEC_SRV_APPSUB_003_OK
     [Documentation]
     ...    Check that the IUT responds with the information on a specific subscription
     ...    when queried by a MEC Application
@@ -68,14 +65,13 @@ TP_MEC_SRV_APPSUB_003_OK
     ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/AppTerminationNotificationSubscription
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vGET    /${PX_ME_APP_SUPPORT_URI}/${APP_INSTANCE_ID}/subscriptions/${SUBSCRIPTION_ID}
+    Get individual subscription    ${APP_INSTANCE_ID}    ${SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    AppTerminationNotificationSubscription
     Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    subscriptionType    "AppTerminationNotificationSubscription"
 
 
-TP_MEC_SRV_APPSUB_003_NF
+TC_MEC_SRV_APPSUB_003_NF
     [Documentation]
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
@@ -83,12 +79,11 @@ TP_MEC_SRV_APPSUB_003_NF
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.1
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vGET    /${PX_ME_APP_SUPPORT_URI}/${APP_INSTANCE_ID}/subscriptions/${NON_EXISTENT_SUBSCRIPTION_ID}
+    Get individual subscription    ${APP_INSTANCE_ID}    ${NON_EXISTENT_SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    404
 
 
-TP_MEC_SRV_APPSUB_004_OK
+TC_MEC_SRV_APPSUB_004_OK
     [Documentation]
     ...    Check that the IUT acknowledges the unsubscribe from service availability event notifications
     ...    when commanded by a MEC Application
@@ -96,12 +91,11 @@ TP_MEC_SRV_APPSUB_004_OK
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vDELETE without e-tag    /${PX_ME_APP_SUPPORT_URI}/${APP_INSTANCE_ID}/subscriptions/${SUBSCRIPTION_ID}
+    Remove subscription    ${APP_INSTANCE_ID}    ${SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    204
 
 
-TP_MEC_SRV_APPSUB_004_NF
+TC_MEC_SRV_APPSUB_004_NF
     [Documentation]
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
@@ -109,6 +103,43 @@ TP_MEC_SRV_APPSUB_004_NF
     ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.4.3.5
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-
-    vDELETE without e-tag    /${PX_ME_APP_SUPPORT_URI}/${NON_EXISTENT_APP_INSTANCE_ID}/subscriptions/${SUBSCRIPTION_ID}
+    Remove subscription    ${NON_EXISTENT_APP_INSTANCE_ID}    ${SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    404
+
+
+*** Keywords ***
+Get Subscriptions List
+    [Arguments]    ${appInstanceId}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Get    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/subscriptions
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+    
+Create new subscription    
+    [Arguments]    ${appInstanceId}    ${content}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    ${file}=    Catenate    SEPARATOR=    jsons/    ${content}    .json
+    ${body}=    Get File    ${file}
+    Post    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/subscriptions    ${body}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+    
+
+Get individual subscription    
+    [Arguments]    ${appInstanceId}    ${subscriptionId}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Get    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/subscriptions/${subscriptionId}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
+    
+Remove subscription  
+    [Arguments]    ${appInstanceId}    ${subscriptionId}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Delete    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/subscriptions/${subscriptionId}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}

@@ -46,7 +46,7 @@ Get the list of the application contexts with wrong parameter
     Delete an application context    ${APP_CTX_ID}
 
 
-Get the list of the application contexts with wrong parameter
+Get the list of the application contexts with non esistent parameter
     [Documentation]   TC_MEC_MEO_UEAPPS_001_NF
     ...  Check that the IUT responds with an error when a request for an unknown URI is sent by a MEC Application
     ...  Reference ETSI GS MEC 016 V1.1.1, clause 7.3.3.1

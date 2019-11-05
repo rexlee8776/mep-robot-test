@@ -1,20 +1,27 @@
 *** Variables ***
-${MEC-APP_SCHEMA}                   http
-#${MEC-APP_HOST}                     172.28.4.87
-#${MEC-APP_HOST}                     127.0.0.1
-${MEC-APP_HOST}                     192.168.56.1
-${MEC-APP_PORT}                     8081
-${INVALID_ETAG}                     invalid_etag
-${APP_INSTANCE_ID}                  appInst01
-${NON_EXISTENT_APP_INSTANCE_ID}     appInst99
-${ALLOCATION_ID}                    allInst01
-${NON_EXISTENT_ALLOCATION_ID}       allInst99
-${FIXED_ALLOCATION}                 fixed_allocation
-${REQUEST_FOR_BW_REQUIREMENTS}      { "appInsId": "${APP_INSTANCE_ID}", "requestType": "APPLICATION_SPECIFIC_BW_ALLOCATION", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "00 = Downlink (towards the UE)"}
-${REQUEST_FOR_BW_REQUIREMENTS_BR}   { "appInsId": "${APP_INSTANCE_ID}", "requestType": "UNKMOWN", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "${FIXED_ALLOCATION}", "allocationDirection": "00 = Downlink (towards the UE)"}
-${REQUEST_FOR_DELTAS_CHANGES}       { "appInsId": "${APP_INSTANCE_ID}", "requestType": "APPLICATION_SPECIFIC_BW_ALLOCATION", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "string", "allocationDirection": "00 = Downlink (towards the UE)"}
-${REQUEST_FOR_DELTAS_CHANGES_BR}    { "appInsId": "${APP_INSTANCE_ID}", "requestType": "UNKNOWN", "fixedBWPriority": "not defined in the present document", "fixedAllocation": "string", "allocationDirection": "00 = Downlink (towards the UE)"}
+# Generic variables
+${SCHEMA}                   http
+${HOST}                     10.192.2.172
+${PORT}                     8081
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
+${apiRoot}        
+${apiName}        bwm
+${apiVersion}     v1
 
+# Specific variables
+
+
+
+
+
+${APP_INSTANCE_ID}                       5abe4782-2c70-4e47-9a4e-0ee3a1a0fd1f
+${NON_EXISTENT_APP_INSTANCE_ID}          NON_EXISTENT_INSTANCE_ID
+${APP_SRVSUB_NOTIF_CALLBACK_URI}         http://127.0.0.1/subscribe
+${SUBSCRIPTION_ID}                       e0deee2b-6e50-4f33-ab09-8bf0585025d3
+${NON_EXISTENT_SUBSCRIPTION_ID}          NON_EXISTENT_SUBSCRIPTION_ID
+${ALLOCATION_ID}                         59ab1593-d330-4087-85ec-4e484092f306
+${NON_EXISTENT_ALLOCATION_ID}            NON_EXISTENT_ALLOCATION_ID
+${INVALID_ETAG}
 ${ETAG_VALUE}
+${ETAG}
