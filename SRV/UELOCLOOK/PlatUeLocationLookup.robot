@@ -90,3 +90,12 @@ Get list of user equipments
     Get    ${apiRoot}/${apiName}/${apiVersion}/users?${key}=${value}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
+
+
+Get specific user equipments
+    [Arguments]    ${userId}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    Get    ${apiRoot}/${apiName}/${apiVersion}/users/${userId}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}
