@@ -1,10 +1,18 @@
-# MEC Testing Framework in Robot Framework
+# MEC Testing Framework in Robot Framework - GS 032-2
 
 ## Introduction
-This repositories contains the test specifications and test adapter code for MEC Testing project in Robot Framework
+This repositories contains the test specifications and test adapter code for MEC Testing project in Robot Framework.
+
+Latest publicly available drafts are available at https://docbox.etsi.org/isg/mec/open.
+
+**{- Disclaimer: The content of this repository is related to a DRAFT, i.e. a working document, of ETSI ISG MEC. -}**
+{-The content of the repository is provided for information only and is still under development. It may be updated, replaced, or removed at any time. Do not use as reference material. -} 
+
+For more information on ETSI ISG Multi-access Edge Computing (MEC), visit https://www.etsi.org/technologies/multi-access-edge-computing.
 
 ## Contact information
-Email at cti_support at etsi dot org
+
+Email at `cti_support` at `etsi` dot `org`.
 
 ## License
 Unless specified otherwise, the content of this repository and the files contained are released under the BSD-3-Clause license.
