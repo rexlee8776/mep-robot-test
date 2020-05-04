@@ -211,7 +211,7 @@ Update service
     Set Headers    {"Authorization":"${TOKEN}"}
     ${file}=    Catenate    SEPARATOR=    jsons/    ${content}    .json
     ${body}=    Get File    ${file}
-    Post    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/services/${serviceId}    ${body}
+    Put    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/services/${serviceId}    ${body}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
     

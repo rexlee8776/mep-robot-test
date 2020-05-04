@@ -1,0 +1,34 @@
+{
+  "serName": "FaceRegService5",
+  "serCategory": {
+    "href": "/example/catalogue1",
+    "id": "id12345",
+    "name": "RNI",
+    "version": "5.5.5"
+  },
+  "version": "7.6.6",
+  "state": "ACTIVE",
+  "transportId": "Rest1",
+  "transportInfo": {
+    "id": "TransId12345",
+    "name": "REST",
+    "description": "REST API",
+    "type": "REST_HTTP",
+    "protocol": "HTTP",
+    "version": "2.0",
+    "endpoint": {},
+    "security": {
+      "oAuth2Info": {
+        "grantTypes": [
+          "OAUTH2_CLIENT_CREDENTIALS"
+        ],
+        "tokenEndpoint": "/mecSerMgmtApi/security/TokenEndPoint"
+      }
+    },
+    "implSpecificInfo": {}
+  },
+  "serializer": "JSON",
+  "scopeOfLocality": "MEC_SYSTEM",
+  "consumedLocalOnly": false,
+  "isLocal": true
+}
