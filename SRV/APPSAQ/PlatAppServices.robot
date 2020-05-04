@@ -6,7 +6,7 @@ Documentation
 Resource    ../../GenericKeywords.robot
 Resource    environment/variables.txt
 Library     REST    ${SCHEMA}://${HOST}:${PORT}    ssl_verify=false
-
+Library  Collections
 Default Tags    TC_MEC_SRV_APPSAQ
 
 
@@ -96,7 +96,7 @@ TC_MEC_SRV_APPSAQ_003_OK
     Get individual service    ${APP_INSTANCE_ID}    ${SERVICE_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    ServiceInfo
-    Check Result Contains    ${response['body']['ServiceInfo']}    serInstanceId    ${SERVICE_ID}
+    Dictionary Should Contain Item    ${response['body']}    serInstanceId    ${SERVICE_ID}
 
 
 TC_MEC_SRV_APPSAQ_003_NF
