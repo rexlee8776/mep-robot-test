@@ -7,6 +7,7 @@ Resource    ../../GenericKeywords.robot
 Resource    environment/variables.txt
 Library     REST    ${SCHEMA}://${HOST}:${PORT}    ssl_verify=false
 Library     OperatingSystem 
+Library     Collections
 
 Default Tags    TC_MEC_SRV_SRVSUB
 
@@ -52,8 +53,8 @@ TC_MEC_SRV_SRVSUB_002_OK
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    SerAvailabilityNotificationSubscription
     Check HTTP Response Header Contains    Location
-    Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    subscriptionType    "SerAvailabilityNotificationSubscription"
-    Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    callbackReference    ${APP_SRVSUB_NOTIF_CALLBACK_URI}
+    Dictionary Should Contain Item    ${response['body']}    subscriptionType    SerAvailabilityNotificationSubscription
+    Dictionary Should Contain Item    ${response['body']}    callbackReference    ${APP_SRVSUB_NOTIF_CALLBACK_URI}
 
 
 TC_MEC_SRV_SRVSUB_002_BR

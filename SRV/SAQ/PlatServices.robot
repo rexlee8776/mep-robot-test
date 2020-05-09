@@ -6,7 +6,8 @@ Documentation
 Resource    ../../GenericKeywords.robot
 Resource    environment/variables.txt
 Library     REST    ${SCHEMA}://${HOST}:${PORT}    ssl_verify=false
-Library     OperatingSystem  
+Library     OperatingSystem
+Library     Collections
 
 Default Tags    TC_MEC_SRV_SAQ
 
@@ -52,7 +53,7 @@ TC_MEC_SRV_SAQ_002_OK
     Get specific MEC service    ${SERVICE_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    ServiceInfo
-    Check Result Contains    ${response['body']['ServiceInfoList']}    serInstanceId    ${SERVICE_ID}
+    Dictionary Should Contain Item    ${response['body']}    serInstanceId    ${SERVICE_ID}
 
 
 TC_MEC_SRV_SAQ_002_NF

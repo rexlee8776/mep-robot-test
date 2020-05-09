@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "required": [
+        "subscriptionType",
+        "callbackReference",
+        "filteringCriteria"
+    ],
+    "properties": {
+        "subscriptionType": {
+            "type": "string"
+        },
+        "callbackReference": {
+            "type": "string"
+        },
+        "filteringCriteria": {
+            "type": "object"
+        }
+    }
+}

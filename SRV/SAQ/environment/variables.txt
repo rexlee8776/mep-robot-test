@@ -1,17 +1,17 @@
 *** Variables ***
 # Generic variables
 ${SCHEMA}                   http
-${HOST}                     10.192.2.172
-${PORT}                     8081
+${HOST}                     localhost
+${PORT}                     8088
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
-${apiRoot}        
+${apiRoot}        mep
 ${apiName}        mec_service_mgmt
 ${apiVersion}     v1
 
 # Specific variables
 ${INVALID_VALUE}                INVALID_VALUE
-${SERVICE_ID}                   e0deee2b-6e50-4f33-ab09-8bf0585025d3
+${SERVICE_ID}                   f7e898d1c9ea9edd5296108811321d2e
 ${NON_EXISTENT_SERVICE_ID}          NON_EXISTENT_SERVICE_ID
 
 

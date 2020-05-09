@@ -9,11 +9,11 @@ ${apiRoot}        mep
 ${apiName}        mec_service_mgmt
 ${apiVersion}     v1
 # Specific variables
-${APP_INSTANCE_ID}    5abe4782-2c70-4e47-9a4e-0ee3a1a0fd1f
+${APP_INSTANCE_ID}    FaceRegService5
 ${INSTANCE_ID}    instance_id
 ${FAKE_INSTANCE_ID_VALUE}    5
 ${NON_EXISTENT_APP_INSTANCE_ID}    NON_ESISTENT_APP_INSTANCE_ID
-${SERVICE_ID}     904a1a64a7d7de41e19db20904b63863
+${SERVICE_ID}     904a1a64a7d7de41d2553a0123f4eb6d
 ${NON_EXISTENT_SERVICE_ID}    NON_EXISTENT_SERVICE_ID
 ${INVALID_ETAG}    INVALID_ETAG
 # ${SUBSCRIPTION_TYPE}    MobilityProcedureSubscription

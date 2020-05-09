@@ -1,0 +1,24 @@
+{
+  "subscriptionType": "SerAvailabilityNotificationSubscription",
+  "callbackReference": "http://127.0.0.1/subscribe",
+  "filteringCriteria": {
+    "serInstanceIds": [
+      "f7e898d1c9ea9edd8a41295fc55c2373"
+    ],
+    "serNames": [
+      "FaceRegService5"
+    ],
+    "serCategories": [
+      {
+        "href": "/example/catalogue1",
+        "id": "id12345",
+        "name": "RNI",
+        "version": "1.2.2"
+      }
+    ],
+    "states": [
+      "ACTIVE"
+    ],
+    "isLocal": true
+  }
+}
