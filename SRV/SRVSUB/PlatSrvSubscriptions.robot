@@ -82,7 +82,7 @@ TC_MEC_SRV_SRVSUB_003_OK
     Get individual subscription    ${APP_INSTANCE_ID}    ${SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    SerAvailabilityNotificationSubscription
-    Check Result Contains    ${response['body']['SerAvailabilityNotificationSubscription']}    subscriptionType    "SerAvailabilityNotificationSubscription"
+    Dictionary Should Contain Item    ${response['body']}    subscriptionType    SerAvailabilityNotificationSubscription
 
 
 TC_MEC_SRV_SRVSUB_003_NF
