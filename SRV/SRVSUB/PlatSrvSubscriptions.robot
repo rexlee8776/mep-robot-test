@@ -8,6 +8,7 @@ Resource    environment/variables.txt
 Library     REST    ${SCHEMA}://${HOST}:${PORT}    ssl_verify=false
 Library     OperatingSystem 
 Library     Collections
+Library     String
 
 Default Tags    TC_MEC_SRV_SRVSUB
 
@@ -55,6 +56,9 @@ TC_MEC_SRV_SRVSUB_002_OK
     Check HTTP Response Header Contains    Location
     Dictionary Should Contain Item    ${response['body']}    subscriptionType    SerAvailabilityNotificationSubscription
     Dictionary Should Contain Item    ${response['body']}    callbackReference    ${APP_SRVSUB_NOTIF_CALLBACK_URI}
+    ${SUBSCRIPTION_URL}=    Get From Dictionary    ${response['body']['_links']['self']}    href
+    ${SUBSCRIPTION_ID}=    Fetch From Right    ${SUBSCRIPTION_URL}    /
+    Set Global Variable      ${SUBSCRIPTION_ID}
 
 
 TC_MEC_SRV_SRVSUB_002_BR
