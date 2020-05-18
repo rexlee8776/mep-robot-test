@@ -1,0 +1,5 @@
+{
+  "subscriptionType": "AppTerminationNotificationSubscription",
+  "callbackReference": "http://127.0.0.1/subscribe",
+  "appInstanceId": "6abe4782-2c70-4e47-9a4e-0ee3a1a0fd1e"
+}

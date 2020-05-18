@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "required": [
+        "subscriptionType",
+        "callbackReference",
+        "appInstanceId"
+    ],
+    "properties": {
+        "subscriptionType": {
+            "type": "string"
+        },
+        "callbackReference": {
+            "type": "string"
+        },
+        "appInstanceId": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "required": [
+        "_links"
+    ],
+    "properties": {
+        "_links": {
+            "type": "object",
+            "required": [
+                "self",
+                "subscriptions"
+            ],
+            "properties": {
+                "self": {
+                    "type": "object"
+                },
+                "subscriptions": {
+                    "type": "array"
+                }
+            }
+        }
+    }
+}

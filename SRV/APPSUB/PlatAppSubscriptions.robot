@@ -7,7 +7,8 @@ Resource    ../../GenericKeywords.robot
 Resource    environment/variables.txt
 Library     REST    ${SCHEMA}://${HOST}:${PORT}    ssl_verify=false
 Library     OperatingSystem    
-
+Library     Collections
+Library     String
 Default Tags    TC_MEC_SRV_APPSUB
 
 
@@ -24,7 +25,7 @@ TC_MEC_SRV_APPSUB_001_OK
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get Subscriptions list    ${APP_INSTANCE_ID}
     Check HTTP Response Status Code Is    200
-    Check HTTP Response Body Json Schema Is    SubscriptionLinkList
+    Check HTTP Response Body Json Schema Is    SubscriptionsLinkList
 
 
 TC_MEC_SRV_APPSUB_001_NF
@@ -52,9 +53,11 @@ TC_MEC_SRV_APPSUB_002_OK
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    AppTerminationNotificationSubscription
     Check HTTP Response Header Contains    Location
-    Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    subscriptionType    "AppTerminationNotificationSubscription"
-    Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    callbackReference    ${APP_TERM_NOTIF_CALLBACK_URI}
-
+    Dictionary Should Contain Item    ${response['body']}    subscriptionType    AppTerminationNotificationSubscription
+    Dictionary Should Contain Item    ${response['body']}    callbackReference    ${APP_TERM_NOTIF_CALLBACK_URI}
+    ${SUBSCRIPTION_URL}=    Get From Dictionary    ${response['body']['_links']['self']}    href
+    ${SUBSCRIPTION_ID}=    Fetch From Right    ${SUBSCRIPTION_URL}    /
+    Set Global Variable      ${SUBSCRIPTION_ID}
 
 TC_MEC_SRV_APPSUB_003_OK
     [Documentation]
@@ -68,7 +71,7 @@ TC_MEC_SRV_APPSUB_003_OK
     Get individual subscription    ${APP_INSTANCE_ID}    ${SUBSCRIPTION_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    AppTerminationNotificationSubscription
-    Check Result Contains    ${response['body']['AppTerminationNotificationSubscription']}    subscriptionType    "AppTerminationNotificationSubscription"
+    Dictionary Should Contain Item    ${response['body']}    subscriptionType    AppTerminationNotificationSubscription
 
 
 TC_MEC_SRV_APPSUB_003_NF
