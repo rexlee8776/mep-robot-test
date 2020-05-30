@@ -2,16 +2,16 @@
 # Generic variables
 ${SCHEMA}                   http
 ${HOST}                     10.192.2.172
-${PORT}                     8081
+${PORT}                     8088
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
-${apiRoot}        
+${apiRoot}        mep
 ${apiName}        mec_app_support
 ${apiVersion}     v1
 
 # Specific variables
 ${APP_INSTANCE_ID}                       5abe4782-2c70-4e47-9a4e-0ee3a1a0fd1f
-${DNS_RULE_ID}                           e0deee2b-6e50-4f33-ab09-8bf0585025d3
+${DNS_RULE_ID}                           001dbfd4-c115-4813-a9f4-36af94565c50
 ${NON_ESISTENT_DNS_RULE_ID}              NON_ESISTENT_DNS_RULE_ID
 ${INVALID_ETAG}                     INVALID_ETAG
 

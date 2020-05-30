@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "required": [
+    "timeStamp"
+  ],
+  "properties": {
+    "timeStamp": {
+      "type": "object",
+      "required": [
+        "seconds",
+        "nanoSeconds"
+      ],
+      "properties": {
+        "seconds": {
+          "type": "number"
+        },
+        "nanoSeconds": {
+          "type": "number"
+        }
+      }
+    },
+    "ntpServers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ntpServerAddrType",
+          "ntpServerAddr",
+          "minPollingInterval",
+          "maxPollingInterval",
+          "localPriority",
+          "authenticationOption",
+          "authenticationKeyNum"
+        ],
+        "properties": {
+          "ntpServerAddrType": {
+            "type": "string"
+          },
+          "ntpServerAddr": {
+            "type": "string"
+          },
+          "minPollingInterval": {
+            "type": "number"
+          },
+          "maxPollingInterval": {
+            "type": "number"
+          },
+          "localPriority": {
+            "type": "number"
+          },
+          "authenticationOption": {
+            "type": "string"
+          },
+          "authenticationKeyNum": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "ptpMasters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ptpMasterIpAddress",
+          "ptpMasterLocalPriority",
+          "delayReqMaxRate"
+        ],
+        "properties": {
+          "ptpMasterIpAddress": {
+            "type": "string"
+          },
+          "ptpMasterLocalPriority": {
+            "type": "number"
+          },
+          "delayReqMaxRate": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

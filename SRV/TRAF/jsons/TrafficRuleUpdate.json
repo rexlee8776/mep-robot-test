@@ -1,0 +1,55 @@
+{
+  "trafficRuleId": "01643118-5ff2-4f9f-9cc4-e6f8758857f6",
+  "filterType": "FLOW",
+  "priority": 1,
+  "trafficFilter": [
+    {
+      "srcAddress": [
+        "192.168.1.1"
+      ],
+      "dstAddress": [
+        "192.168.1.1"
+      ],
+      "srcPort": [
+        "8080"
+      ],
+      "dstPort": [
+        "8080"
+      ],
+      "protocol": [
+        "?"
+      ],
+      "token": [
+        "?"
+      ],
+      "srcTunnelAddress": [
+        "?"
+      ],
+      "tgtTunnelAddress": [
+        "?"
+      ],
+      "srcTunnelPort": [
+        "?"
+      ],
+      "dstTunnelPort": [
+        "?"
+      ],
+      "qCI": 1,
+      "dSCP": 0,
+      "tC": 1
+    }
+  ],
+  "action": "DROP",
+  "dstInterface": {
+    "interfaceType": "TUNNEL",
+    "tunnelInfo": {
+      "tunnelType": "GTP_U",
+      "tunnelDstAddress": "?",
+      "tunnelSrcAddress": "?"
+    },
+    "srcMacAddress": "02-00-00-00-00-00",
+    "dstMacAddress": "02-00-00-00-00-00",
+    "dstIpAddress": "192.0.2.0"
+  },
+  "state": "INACTIVE"
+}

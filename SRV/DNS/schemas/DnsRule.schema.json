@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "dnsRuleId",
+    "domainName",
+    "ipAddressType",
+    "ipAddress",
+    "ttl",
+    "state"
+  ],
+  "properties": {
+    "dnsRuleId": {
+      "type": "string"
+    },
+    "domainName": {
+      "type": "string"
+    },
+    "ipAddressType": {
+      "type": "string",
+      "enum": [
+        "IP_V4",
+        "IP_V6"
+      ]
+    },
+    "ipAddress": {
+      "type": "string"
+    },
+    "ttl": {
+      "type": "number"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
+    }
+  }
+}

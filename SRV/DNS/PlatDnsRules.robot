@@ -39,10 +39,11 @@ TC_MEC_SRV_DNS_002_OK
     ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.9/MecAppSupportApi.yaml#/definitions/DnsRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
-    Get individual DNS rule    ${APP_INSTANCE_ID}    ${DNS_RULE_ID}
+    Get list of active DNS rules    ${APP_INSTANCE_ID}
     Check HTTP Response Status Code Is    200
-    Check HTTP Response Body Json Schema Is    DnsRule
-    Check Result Contains    ${response['body']['DnsRule']}    dnsRuleId    ${DNS_RULE_ID}
+    Check HTTP Response Body Json Schema Is    DnsRuleList
+    Check Result Contains    ${response['body']}    dnsRuleId    ${DNS_RULE_ID}
+
 
 
 TC_MEC_SRV_DNS_002_NF
@@ -138,7 +139,7 @@ Update a DNS Rule
     Set Headers    {"Authorization":"${TOKEN}"}
     ${file}=    Catenate    SEPARATOR=    jsons/    ${content}    .json
     ${body}=    Get File    ${file}
-    Post    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/dns_rules/${dnsRuleId}    ${body}
+    Put    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/dns_rules/${dnsRuleId}    ${body}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
     
