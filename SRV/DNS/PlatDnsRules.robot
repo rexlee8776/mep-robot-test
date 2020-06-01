@@ -145,4 +145,12 @@ Update a DNS Rule
     
 Update a DNS Rule with invalid etag
     [Arguments]    ${appInstanceId}    ${dnsRuleId}    ${content}
-    Set Headers    {"If-Match": ${INVALID_ETAG}}
+    Set Headers    {"If-Match": "${INVALID_ETAG}"}
+    Set Headers    {"Accept":"application/json"}
+    Set Headers    {"Content-Type":"application/json"}
+    Set Headers    {"Authorization":"${TOKEN}"}
+    ${file}=    Catenate    SEPARATOR=    jsons/    ${content}    .json
+    ${body}=    Get File    ${file}
+    Put    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/dns_rules/${dnsRuleId}    ${body}
+    ${output}=    Output    response
+    Set Suite Variable    ${response}    ${output}

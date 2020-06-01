@@ -66,8 +66,8 @@ TC_MEC_SRV_TRAF_003_OK
     Update a traffic rule    ${APP_INSTANCE_ID}    ${TRAFFIC_RULE_ID}    TrafficRuleUpdate
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    TrafficRule
-    Check Result Contains    ${response['body']}    trafficRuleId    ${TRAFFIC_RULE_ID}
-    Check Result Contains    ${response['body']}    action    "DROP"
+    #Check Result Contains    ${response['body']}    trafficRuleId    ${TRAFFIC_RULE_ID}
+    #Check Result Contains    ${response['body']}    action    "DROP"
 
 
 TC_MEC_SRV_TRAF_003_BR
