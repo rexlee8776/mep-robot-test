@@ -1,0 +1,44 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "type",
+      "protocol",
+      "version",
+      "endpoint",
+      "security"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "protocol": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "endpoint": {
+        "type": "object"
+      },
+      "security": {
+        "type": "object"
+      },
+      "implSpecificInfo": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "type": "object",
+  "required": [
+    "trafficRuleId",
+    "filterType",
+    "priority",
+    "trafficFilter",
+    "action",
+    "dstInterface",
+    "state"
+  ],
+  "properties": {
+    "trafficRuleId": {
+      "type": "string"
+    },
+    "filterType": {
+      "type": "string",
+      "enum": [
+        "FLOW",
+        "PACKET"
+      ]
+    },
+    "priority": {
+      "type": "number"
+    },
+    "trafficFilter": {
+      "type": "array",
+      "item": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "srcAddress": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dstAddress": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "srcPort": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dstPort": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "protocol": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tag": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "srcTunnelAddress": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tgtTunnelAddress": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "srcTunnelPort": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "dstTunnelPort": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "qCI": {
+            "type": "number"
+          },
+          "dSCP": {
+            "type": "number"
+          },
+          "tC": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "DROP",
+        "FORWARD_DECAPSULATED",
+        "FORWARD_ENCAPSULATED",
+        "PASSTHROUGH",
+        "DUPLICATE_DECAPSULATED",
+        "DUPLICATE_ENCAPSULATED"
+      ]
+    },
+    "dstInterface": {
+      "type": "object",
+      "required": [
+        "interfaceType"
+      ],
+      "properties": {
+        "interfaceType": {
+          "type": "string"
+        },
+        "tunnelInfo": {
+          "type": "object",
+          "required": [
+            "tunnelType"
+          ],
+          "properties": {
+            "tunnelType": {
+              "type": "string",
+              "enum": [
+                "GTP_U",
+                "GRE",
+                "VXLAN"
+              ]
+            },
+            "tunnelDstAddress": {
+              "type": "string"
+            },
+            "tunnelSrcAddress": {
+              "type": "string"
+            }
+          }
+        },
+        "srcMacAddress": {
+          "type": "string"
+        },
+        "dstMacAddress": {
+          "type": "string"
+        },
+        "dstIpAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
+    }
+  }
+}
